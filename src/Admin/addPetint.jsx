@@ -2,7 +2,7 @@ import React from 'react'
 
 const AddPetint = () => {
   return (
-    <div>Add Petint</div>
+    <div>Add Pet</div>
   )
 }
 

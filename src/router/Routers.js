@@ -10,6 +10,7 @@ import AdminLayout from '../components/layouts/AdminLayout'
 import ManageAppoiment from '../Admin/manageAppoiment'
 import Dashboard from '../Admin/dashboard'
 import AddPetint from '../Admin/addPetint'
+
 const Routers = () => {
   return (
     <Routes>
@@ -20,6 +21,9 @@ const Routers = () => {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/faqs" element={<Faqs/>}/>
                 <Route path="/contact" element={<Contact/>}/>   
+               
+               
+               
             </Route>
 
             <Route path="/admin/login" element={<AdminLogin/>}/>
