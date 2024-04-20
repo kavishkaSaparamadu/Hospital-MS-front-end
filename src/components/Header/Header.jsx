@@ -10,6 +10,8 @@ const Header = () => {
      <a href="/faqs">FAQS</a>
      <a href="/contact">Contact Us</a>
      <a href="/fogetPassword">Login</a>
+     
+     
    
 </div>
     </div>
