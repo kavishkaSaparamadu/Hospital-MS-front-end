@@ -10,6 +10,7 @@ import AdminLayout from '../components/layouts/AdminLayout'
 import ManageAppoiment from '../Admin/manageAppoiment'
 import Dashboard from '../Admin/dashboard'
 import AddPetint from '../Admin/addPetint'
+import ForgotPassword from '../pages/Login/FogetPassword'
 
 const Routers = () => {
   return (
@@ -21,6 +22,7 @@ const Routers = () => {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/faqs" element={<Faqs/>}/>
                 <Route path="/contact" element={<Contact/>}/>   
+                <Route path="fogetPassword" element={<ForgotPassword/>}/>
                
                
                
