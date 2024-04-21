@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 function Home() {
   return (
-    <div>
+  
     <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {/* About Our Hospital */}
       <div className="bg-white text-black p-11 rounded-lg shadow-md">
@@ -35,8 +36,8 @@ function Home() {
         We offer a wide range of medical services including primary care, specialized treatments, diagnostic services, and surgical procedures. Our goal is to meet all of your healthcare needs under one roof.        </p>
       </div>
   </div>
-  </div>
-            
+  
+          
   );
 }
 
