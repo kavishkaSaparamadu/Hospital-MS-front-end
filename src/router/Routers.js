@@ -11,6 +11,11 @@ import ManageAppoiment from '../Admin/manageAppoiment'
 import Dashboard from '../Admin/dashboard'
 import AddPetint from '../Admin/addPetint'
 import ForgotPassword from '../pages/Login/FogetPassword'
+import DoctorDashboard from '../Doctor/doctorDashboard'
+import ScheduleAppoment from '../Doctor/ScheduleAppoment'
+import PateintList from '../Doctor/pateintList'
+import DoctorLayout from '../components/layouts/doctorLayout'
+import DoctorLogin from '../Doctor/DoctorLogin'
 
 const Routers = () => {
   return (
@@ -37,8 +42,21 @@ const Routers = () => {
             <Route path="/admin/manageAppoiment" element={<ManageAppoiment/>}/>
             <Route path="/admin/addPetint" element={<AddPetint/>}/>
         
+              </Route>
+
+             <Route path="/doctor/login" element={<DoctorLogin/>}/>
+            <Route path="/doctor" element={<DoctorLayout/>}>
+            <Route path="/doctor" element={<Navigate to="/doctor/dashboard"/>}/>
+
+              <Route path="/doctor/dashboard" element={<DoctorDashboard/>}/>
+            <Route path="/doctor/schedule" element={<ScheduleAppoment/>}/>
+            <Route path="/doctor/pateinlist" element={<PateintList/>}/>
+        
 
               </Route>
+
+              
+
 
 
     </Routes>
