@@ -1,9 +1,31 @@
 import React from 'react';
-
+import Headerimage from '../Images/headr.png'
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import viso from '../Images/vision.png';
 
 function Home() {
   return (
-  
+
+  <div>
+    <div className='parallax-container'>
+  <div className='parallax-img'>
+    <img src={Headerimage} alt="header image" />
+  </div>
+  <div className='mask' style={{ backgroundColor: 'lightblue' }}>
+   
+    <div className='flex justify-center items-center h-full'>
+      <div className='text-blue-600'>
+        <h1 className='mb-3 text-4xl'>Family Care Dispensary</h1>
+        <h4 className='mb-3 text-lg'>We care About Your Health</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
     <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {/* About Our Hospital */}
       <div className="bg-white text-black p-11 rounded-lg shadow-md">
@@ -35,9 +57,34 @@ function Home() {
         <p>
         We offer a wide range of medical services including primary care, specialized treatments, diagnostic services, and surgical procedures. Our goal is to meet all of your healthcare needs under one roof.        </p>
       </div>
-  </div>
-  
-          
+      </div>
+      </section>
+
+      <section>
+
+
+ <div className="bg-sky-200 min-h-3.5 flex justify-center items-center">
+      {/* Styled h1 element */}
+      <h1 className="text-black text-4xl">What we have</h1>
+      <br/>
+      <br/>
+      <br/>
+          </div>
+      <Container>
+      <Row>
+        <Col xs={10} md={4}>
+          <Image src={viso} rounded />
+        </Col>
+        <Col xs={10} md={4}>
+          <Image src={viso} roundedCircle />
+        </Col>
+        <Col xs={10} md={4}>
+          <Image src={viso} thumbnail />
+        </Col>
+      </Row>
+    </Container>
+</section>
+</div>
   );
 }
 

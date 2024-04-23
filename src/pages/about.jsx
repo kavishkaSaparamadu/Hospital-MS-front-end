@@ -1,51 +1,43 @@
-import React from 'react'
-import img from '../Images/homepage.png'
-import im from '../Images/vision.png'
-const About = () => {
-  return (
-  
-    
-  
-      <div class="bg-white py-24 sm:py-32">
-  <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-    <div class="max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Misson</h2>
-      <p class="mt-6 text-lg leading-8 text-gray-600">provide quality healthcare solutions to patients at affordable prices by qualified medical practitioners and paramedical staff.</p>
-    </div>
-    <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-      <li>
-        <div class="flex items-center gap-x-6">
-          <div>
-          <div className= 'w-10 h-5 rounded-lg mr-4' style={{animationDuration: '3s' }}/>
-          <img src={img} alt="header image" />
-          </div>
-        </div>
-      </li>
-    </ul>
+import React from "react";
+import MissionImage from '../Images/vision.png'; // Replace '../Images/mission.jpg' with the correct path to your mission image
+import VisionImage from '../Images/vision.png'; // Replace '../Images/vision.jpg' with the correct path to your vision image
 
-    <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-      <li>
-        <div class="flex items-center gap-x-6">
-          <div>
-          <div className= 'w-10 h-5 rounded-xl mr-4' style={{animationDuration: '3s' }}/>
-          <img src={im} alt="vissionimage" />
+function About() {
+  return (
+    <div>
+         <div className="bg-gray-100 min-h-screen p-8">
+      <div className="max-w-4xl mx-auto"></div>
+        {/* Mission Section */}
+        <section className="my-8">
+          <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
+          <div className="flex items-center justify-center">
+            <p className="text-lg text-gray-700">
+              {/* Enter your mission description here */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            </p>
+            <img src={MissionImage} alt="Mission" alt="Vision" className="min-w-96 max-h-96 aspect-square mr-6" />
+            </div>
+        
+        </section>
+
+
+        {/* Vision Section */}
+        
+        <section className="my-8">
+          <h2 className="text-3xl font-semibold mb-4">Our Vision</h2>
+          <div className="flex items-center justify-center">
+            <img src={VisionImage} alt="Vision" className="min-w-96 max-h-96 aspect-square mr-9" />
+            <p className="text-lg text-gray-700">
+              {/* Enter your vision description here */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            </p>
           </div>
-        </div>
-      </li>
-    </ul>
-    <div class="bg-white py-24 sm:py-32">
-  <div class="mx-auto grid max-w-7xl gap-x-6 gap-y-20 px-12 lg:px-8 xl:grid-cols-1">
-    <div class="max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Vision</h2>
-      <p class="mt-2 text-lg leading-8 text-gray-600">to be the leading healthcare provider in our community, recognized for delivering exceptional patient care, pioneering medical advancements, and fostering a culture of compassion and excellence in everything we do. We aspire to be the trusted partner in promoting health and wellness, ensuring access to high-quality, affordable healthcare for all individuals, and making a meaningful difference in the lives of those we serve."
-</p>
+        </section>
+      </div>
     </div>
-  </div>
-</div>
-</div>
-</div>
-  
-  )
+   
+
+  );
 }
 
-export default About
+export default About;

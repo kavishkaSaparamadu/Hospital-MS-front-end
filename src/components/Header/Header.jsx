@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Headerimage from '../../Images/headr.png'
 
 const Header = () => {
   return (
@@ -34,28 +33,16 @@ const Header = () => {
             aria-label="Search"
           />
           <Button variant="outline-success">Search</Button>
-          <Nav.Link href="/fogetPassword">Login</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
         </Form>
       </Navbar.Collapse>
     </Container>
   </Navbar>
      
   <div>
-      <div className= 'w-auto h-auto rounded-full mr-4' style={{animationDuration: '3s' }}/>
-      <img src={Headerimage} alt="header image" />
-      <div className='mask' style={{ backgroundColor: 'lightblue' }}>
-        <div className='flex justify-center items-center h-full'>
-          <div className='text-blue-600'>
-            <h1 className='mb-3 text-4xl'>Family Care Dispensary</h1>
-            <h4 className='mb-3 text-lg'>We care About Your Health</h4>
-          </div>
-        </div>
       </div>
-    </div>
-  
-
-  
-        </div>       
+      </div>
+     
        
         
         )
