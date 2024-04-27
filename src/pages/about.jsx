@@ -15,7 +15,8 @@ function About() {
               {/* Enter your mission description here */}
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
             </p>
-            <img src={MissionImage} alt="Mission" alt="Vision" className="min-w-96 max-h-96 aspect-square mr-6" />
+            <img src={MissionImage} alt="Mission" className="min-w-96 max-h-96 aspect-square mr-6" />
+            <img src={VisionImage} alt="Vision" className="min-w-96 max-h-96 aspect-square mr-6" />
             </div>
         
         </section>

@@ -16,6 +16,8 @@ import ScheduleAppoment from '../Doctor/ScheduleAppoment'
 import PateintList from '../Doctor/pateintList'
 import DoctorLayout from '../components/layouts/doctorLayout'
 import DoctorLogin from '../Doctor/DoctorLogin'
+import Channeling from '../pages/Channeling'
+
 
 const Routers = () => {
   return (
@@ -25,6 +27,7 @@ const Routers = () => {
 
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
+                <Route path="/chanelling" element={<Channeling/>}/>
                 <Route path="/faqs" element={<Faqs/>}/>
                 <Route path="/contact" element={<Contact/>}/>   
                 <Route path="/login" element={<ForgotPassword/>}/>
