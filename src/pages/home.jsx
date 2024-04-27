@@ -1,5 +1,5 @@
 import React from 'react';
-import Headerimage from '../Images/headr.png'
+import HeaderMv from '../Images/video.mp4'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -12,16 +12,10 @@ function Home() {
   <div>
     <div className='parallax-container'>
   <div className='parallax-img'>
-    <img src={Headerimage} alt="header image" />
+    <div className='mb-auto'></div>
+    <video src={HeaderMv} muted autoPlay loop type ="video/mp4"/>
   </div>
-  <div className='mask' style={{ backgroundColor: 'lightblue' }}>
-   
-    <div className='flex justify-center items-center h-full'>
-      <div className='text-blue-600'>
-        <h1 className='mb-3 text-4xl'>Family Care Dispensary</h1>
-        <h4 className='mb-3 text-lg'>We care About Your Health</h4>
-      </div>
-    </div>
+  <div className='mask' style={{ backgroundColor: 'ButtonHighlight' }}>  
   </div>
 </div>
 
