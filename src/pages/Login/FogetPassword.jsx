@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Link } from 'react-router-dom';
+import bg from '../../Images/regbg.png'
 function FogetPassword() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +31,7 @@ function FogetPassword() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-blue-100">
+    <div className=" py-[5rem] px-[28rem] h-screen bg-cover bg-center" style={{ backgroundImage: `url(${bg})` }}>
       <div className="bg-white p-8 rounded shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <form onSubmit={handleLogin}>
@@ -55,11 +57,11 @@ function FogetPassword() {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button>
+          <Link to ="/home"><button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button></Link> 
         </form>
         <div className="mt-4 flex justify-between items-center">
           <button onClick={handleForgotPassword} className="text-sm text-blue-500 hover:underline">Forgot Password?</button>
-          <button onClick={handleSignUp} className="text-sm text-blue-500 hover:underline">Sign Up</button>
+          <Link to ="/Register"> <button onClick={handleSignUp} className="text-sm text-blue-500 hover:underline">Register</button></Link>
         </div>
         <div className="mt-6">
           <p className="text-sm text-gray-600 mb-2">Or login with:</p>
@@ -82,7 +84,7 @@ function FogetPassword() {
       {showSignUp && (
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
+            <h2 className="text-2xl font-semibold mb-4">Register</h2>
             {/* Implement sign up form here */}
             <button onClick={() => setShowSignUp(false)} className="text-sm text-blue-500 hover:underline">Close</button>
           </div>

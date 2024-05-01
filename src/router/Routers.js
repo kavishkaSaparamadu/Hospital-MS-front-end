@@ -7,9 +7,7 @@ import Faqs from '../pages/faqs'
 import Contact from '../pages/contact'
 import AdminLogin from '../Admin/adminLogin'
 import AdminLayout from '../components/layouts/AdminLayout'
-import ManageAppoiment from '../Admin/manageAppoiment'
 import Dashboard from '../Admin/dashboard'
-import AddPetint from '../Admin/addPetint'
 import ForgotPassword from '../pages/Login/FogetPassword'
 import DoctorDashboard from '../Doctor/doctorDashboard'
 import ScheduleAppoment from '../Doctor/ScheduleAppoment'
@@ -17,33 +15,38 @@ import PateintList from '../Doctor/pateintList'
 import DoctorLayout from '../components/layouts/doctorLayout'
 import DoctorLogin from '../Doctor/DoctorLogin'
 import Channeling from '../pages/Channeling'
+import Register from '../pages/Register/Register'
+import PateinLayout from '../components/layouts/pateinLayout'
+import UserProfile from '../pages/userProfile'
+import RegisterPateion from '../Admin/RegisterPateion'
+import Appoiment from '../Admin/Appoiment'
 
 
 const Routers = () => {
   return (
     <Routes>
+            <Route path="/login" element={<PateinLayout/>}></Route>
+            <Route path="/" element={<Navigate to="/login" />}/>
             <Route path="/" element={<Layout/>}>
-            <Route path="/" element={<Navigate to="/home" />}/>
-
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/chanelling" element={<Channeling/>}/>
                 <Route path="/faqs" element={<Faqs/>}/>
                 <Route path="/contact" element={<Contact/>}/>   
                 <Route path="/login" element={<ForgotPassword/>}/>
-               
-               
-               
+               <Route path="/register" element={<Register/>}/>  
+               <Route path="/userProfile" element={<UserProfile/>}/>           
+
             </Route>
 
             <Route path="/admin/login" element={<AdminLogin/>}/>
             <Route path="/admin" element={<AdminLayout/>}>
             <Route path="/admin" element={<Navigate to="/admin/dashboard"/>}/>
-
+        
 
             <Route path="/admin/dashboard" element={<Dashboard/>}/>
-            <Route path="/admin/manageAppoiment" element={<ManageAppoiment/>}/>
-            <Route path="/admin/addPetint" element={<AddPetint/>}/>
+            <Route path="/admin/registerPateion" element={<RegisterPateion/>}/>
+            <Route path="/admin/appoiment" element={<Appoiment/>}/>
         
               </Route>
 

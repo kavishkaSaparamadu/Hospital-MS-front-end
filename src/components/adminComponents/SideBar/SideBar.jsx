@@ -23,9 +23,9 @@ const SideBar = () => {
     
     {/* Navigation Links */}
     <nav className="space-y-4">
-      <Link to="/admin/dashboard" className="block px-5 py-2 text-white hover:bg-gray-800">Dashboard</Link>
-      <Link to="/admin/manageAppoiment" className= "block px-5 py-2 text-white hover:bg-gray-800">Manage Appoiment </Link>
-      <Link to="/admin/addPetint" className="block px-5 py-2 text-white hover:bg-gray-800">Add Petint </Link>
+      <a href ="/admin/dashboard" className="block px-5 py-2 text-white hover:bg-gray-800">Dashboard</a>
+      <a href="/admin/registerPateion" className= "block px-5 py-2 text-white hover:bg-gray-800">Register Pateion</a>
+      <Link to="/admin/appoiment" className="block px-5 py-2 text-white hover:bg-gray-800">Appoiment</Link>
       </nav>
     
     {/* Logout Button */}

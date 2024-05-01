@@ -7,7 +7,7 @@ const AdminLayout = () => {
   return (
     <div>
         <Header/>
-        <div>
+        <div style={{display:'flex'}}>
           <SideBar/>
           <Outlet/>
         </div>

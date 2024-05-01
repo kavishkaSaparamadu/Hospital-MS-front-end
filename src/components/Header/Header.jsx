@@ -32,9 +32,13 @@ const Header = () => {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-          <Nav.Link href="/login">Login</Nav.Link>
+
+         
+         />
+            
+          <Button variant="outline-success">Search</Button><br/>
+        <Button variant="outline-sucess"> <Nav.Link href="/login">Login</Nav.Link></Button>
+          <Button variant="outline-sucess"><Nav.Link href="/userProfile">Profile</Nav.Link></Button>
         </Form>
       </Navbar.Collapse>
     </Container>

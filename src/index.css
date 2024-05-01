@@ -1,0 +1,12 @@
+.vdoAbout{
+    width: 500px;
+}
+
+.avatar{
+    vertical-align: middle;
+    width: 80px;
+    border-radius: 100%;
+    border-width: 10px;
+    border-color: gray;
+    border-style: outset;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import MissionImage from '../Images/vision.png'; // Replace '../Images/mission.jpg' with the correct path to your mission image
 import VisionImage from '../Images/vision.png'; // Replace '../Images/vision.jpg' with the correct path to your vision image
 import HeaderVideo from '../Images/video.mp4'
+ 
 
 
 function About() {
@@ -9,10 +10,10 @@ function About() {
     <div>
  <div>
     <div className='parallax-container'>
-  <div className='parallax-video w-screen'>
+   <div className='parallax-video w-screen'>
    
-    <video src={HeaderVideo} muted autoPlay loop type ="video/mp4" width="1475" height="500" />
-  </div>
+    <video src={HeaderVideo} muted autoPlay loop type ="video/mp4" width="95%" height="500" id="vdoAbout" />
+  </div> 
 
          <div className="bg-gray-100 min-h-screen p-8">
       <div className="max-w-4xl mx-auto"></div>

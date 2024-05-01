@@ -23,9 +23,9 @@ const SideBAr = () => {
     
     {/* Navigation Links */}
     <nav className="space-y-4">
-      <Link to="/doctor/dashboard" className="block px-5 py-2 text-white hover:bg-gray-800">Dashboard</Link>
-      <Link to="/doctor/schedule" className= "block px-5 py-2 text-white hover:bg-gray-800">Schedule Appoiment </Link>
-      <Link to="/doctor/pateinlist" className="block px-5 py-2 text-white hover:bg-gray-800"> Pateint List</Link>
+      <a href ="/doctor/dashboard" className="block px-5 py-2 text-white hover:bg-gray-800">Dashboard</a>
+      <a href="/admin/registerPateion" className= "block px-5 py-2 text-white hover:bg-gray-800">Schedule Appoiment </a>
+      <a href ="/doctor/pateinlist" className="block px-5 py-2 text-white hover:bg-gray-800">Pateint List</a>
       </nav>
     
     {/* Logout Button */}
