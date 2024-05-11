@@ -5,7 +5,7 @@ import pancha from '../Images/drPamcahali.png'
 import era from '../Images/drRanga.png'
 import rath from '../Images/drRathnayaka.png'
 import mis from '../Images/drTharaki.png'
-import login from '../pages/Login/FogetPassword';
+import login from '../pages/Login/Login';
 const Channeling = () => {
   return (
     <>

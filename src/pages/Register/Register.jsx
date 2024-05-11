@@ -9,7 +9,7 @@ export default function Register() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-  const [disease, setDisease] = useState("");
+  const [userRole, setUserRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -27,7 +27,7 @@ export default function Register() {
       toast.error(<div> 😡 Gender is required</div>);
     } else if (address === "") {
       toast.error(<div> 😡 Address is required</div>);
-    } else if (disease === "") {
+    } else if (userRole === "") {
       toast.error(<div> 😡 Disease is required</div>);
     } else if (email === "") {
       toast.error(<div> 😡 Email is required</div>);
@@ -49,7 +49,7 @@ export default function Register() {
       age,
       gender,
       address,
-      disease,
+      userRole,
       email,
       password,
     };
@@ -119,16 +119,21 @@ export default function Register() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="disease" className="block text-sm font-medium text-gray-700">Disease</label>
-            <input 
-              type="text" 
-              id="disease" 
-              name="disease" 
-              value={disease} 
-              onChange={(e) => setDisease(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
-            />
-          </div>
+  <label htmlFor="userRole" className="block text-sm font-medium text-gray-700">
+    User Role
+  </label>
+  <select
+    id="userRole"
+    name="userRole"
+    value={userRole}
+    onChange={(e) => setUserRole(e.target.value)}
+    className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+  >
+    <option value="patient">Patient</option>
+    <option value="doctor">Doctor</option>
+  </select>
+</div>
+
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input 
