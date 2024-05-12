@@ -9,7 +9,7 @@ export default function Register() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-  const [disease, setDisease] = useState("");
+  const [userRole, setUserRole] = useState("patient"); // Default user role set to "patient"
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -27,8 +27,6 @@ export default function Register() {
       toast.error(<div> 😡 Gender is required</div>);
     } else if (address === "") {
       toast.error(<div> 😡 Address is required</div>);
-    } else if (disease === "") {
-      toast.error(<div> 😡 Disease is required</div>);
     } else if (email === "") {
       toast.error(<div> 😡 Email is required</div>);
     } else if (!email.includes("@")) {
@@ -44,19 +42,19 @@ export default function Register() {
   };
 
   const sendData = () => {
-    const newPateint = {
+    const newUser = {
       name,
       age,
       gender,
       address,
-      disease,
+      userRole, // Changed disease to userRole
       email,
       password,
     };
 
     // Send data to server using axios or fetch
     axios
-      .post("http://localhost:5000/pateint/add", newPateint, {
+      .post("http://localhost:5000/user/register", newUser, { // Changed endpoint to "user/add"
         withCredentials: true,
       })
       .then(() => {
@@ -74,6 +72,22 @@ export default function Register() {
       <div className="bg-blue-200 p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl mb-4 text-center font-semibold">Register</h2>
         <form onSubmit={handleSubmit}>
+          {/* User Role Dropdown */}
+          <div className="mb-4">
+            <label htmlFor="userRole" className="block text-sm font-medium text-gray-700">User Role</label>
+            <select
+              id="userRole"
+              name="userRole"
+              value={userRole}
+              onChange={(e) => setUserRole(e.target.value)}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            >
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+            </select>
+          </div>
+          {/* Rest of the form fields */}
+          {/* Name */}
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
             <input 
@@ -85,6 +99,7 @@ export default function Register() {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
+          {/* Age */}
           <div className="mb-4">
             <label htmlFor="age" className="block text-sm font-medium text-gray-700">Age</label>
             <input 
@@ -96,6 +111,7 @@ export default function Register() {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             />
           </div>
+          {/* Gender */}
           <div className="mb-4">
             <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender</label>
             <input 
@@ -107,6 +123,7 @@ export default function Register() {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             />
           </div>
+          {/* Address */}
           <div className="mb-4">
             <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
             <input 
@@ -118,17 +135,7 @@ export default function Register() {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="disease" className="block text-sm font-medium text-gray-700">Disease</label>
-            <input 
-              type="text" 
-              id="disease" 
-              name="disease" 
-              value={disease} 
-              onChange={(e) => setDisease(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
-            />
-          </div>
+          {/* Email */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input 
@@ -140,6 +147,7 @@ export default function Register() {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             />
           </div>
+          {/* Password */}
           <div className="mb-4">
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input 
@@ -151,6 +159,7 @@ export default function Register() {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             />
           </div>
+          {/* Submit Button */}
           <div className="text-center">
             <button 
               type="submit" 
@@ -158,7 +167,8 @@ export default function Register() {
             >
               Register
             </button>
-          </div>
+         
+            </div>
         </form>
       </div>
     </div>
