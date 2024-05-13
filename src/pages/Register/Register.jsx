@@ -9,7 +9,7 @@ export default function Register() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
-  const [userRole, setUserRole] = useState("");
+  const [userRole, setUserRole] = useState("patient");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -44,7 +44,7 @@ export default function Register() {
   };
 
   const sendData = () => {
-    const newPateint = {
+    const newUser = {
       name,
       age,
       gender,
@@ -56,7 +56,7 @@ export default function Register() {
 
     // Send data to server using axios or fetch
     axios
-      .post("http://localhost:5000/pateint/add", newPateint, {
+      .post("http://localhost:5000/user/register", newUser, {
         withCredentials: true,
       })
       .then(() => {

@@ -28,7 +28,7 @@ const Routers = () => {
   return (
     <Routes>
       <Route path="/login" element={<PateinLayout />}></Route>
-      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/" element={<Layout />}>
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -58,14 +58,16 @@ const Routers = () => {
       </Route>
 
       <Route path="/patient" element={<PateinLayout />}></Route>
-      <Route path="/patient" element={<Navigate to="/patient/patientDashboard" />} />
+      <Route
+        path="/patient"
+        element={<Navigate to="/patient/patientDashboard" />}
+      />
 
-      <Route path="/patient/patientDashboard" element={<PatientDashboard />} /> 
-      <Route path="/patient/appointment" element={<PatientAppointment/>} /> 
-      <Route path="/patient/feedback" element={<PatientFeedback />}/>  
-      <Route path="/patient/history" element={<PatientHistory/>}/> 
-    
-     </Routes>
+      <Route path="/patient/patientDashboard" element={<PatientDashboard />} />
+      <Route path="/patient/appointment" element={<PatientAppointment />} />
+      <Route path="/patient/feedback" element={<PatientFeedback />} />
+      <Route path="/patient/history" element={<PatientHistory />} />
+    </Routes>
   );
 };
 
