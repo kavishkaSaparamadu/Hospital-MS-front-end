@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -12,7 +12,7 @@ export default function Register() {
   const [userRole, setUserRole] = useState("patient"); // Default user role set to "patient"
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -54,12 +54,13 @@ export default function Register() {
 
     // Send data to server using axios or fetch
     axios
-      .post("http://localhost:5000/user/register", newUser, { // Changed endpoint to "user/add"
+      .post("http://localhost:5000/user/register", newUser, {
+        // Changed endpoint to "user/add"
         withCredentials: true,
       })
       .then(() => {
         toast.success(<div> 😊 Registration Successful!</div>);
-        navigate('/login');
+        navigate("/login");
       })
       .catch((err) => {
         console.error(err);
@@ -74,7 +75,12 @@ export default function Register() {
         <form onSubmit={handleSubmit}>
           {/* User Role Dropdown */}
           <div className="mb-4">
-            <label htmlFor="userRole" className="block text-sm font-medium text-gray-700">User Role</label>
+            <label
+              htmlFor="userRole"
+              className="block text-sm font-medium text-gray-700"
+            >
+              User Role
+            </label>
             <select
               id="userRole"
               name="userRole"
@@ -89,86 +95,115 @@ export default function Register() {
           {/* Rest of the form fields */}
           {/* Name */}
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
-              value={name} 
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           {/* Age */}
           <div className="mb-4">
-            <label htmlFor="age" className="block text-sm font-medium text-gray-700">Age</label>
-            <input 
-              type="number" 
-              id="age" 
-              name="age" 
-              value={age} 
+            <label
+              htmlFor="age"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Age
+            </label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              value={age}
               onChange={(e) => setAge(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           {/* Gender */}
           <div className="mb-4">
-            <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender</label>
-            <input 
-              type="text" 
-              id="gender" 
-              name="gender" 
-              value={gender} 
+            <label
+              htmlFor="gender"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Gender
+            </label>
+            <input
+              type="text"
+              id="gender"
+              name="gender"
+              value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           {/* Address */}
           <div className="mb-4">
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
-            <input 
-              type="text" 
-              id="address" 
-              name="address" 
-              value={address} 
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Address
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           {/* Email */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              value={email} 
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           {/* Password */}
           <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-            <input 
-              type="password" 
-              id="password"  
-              name="password"  
-              value={password} 
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
           {/* Submit Button */}
           <div className="text-center">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
             >
               Register
             </button>
-         
-            </div>
+          </div>
         </form>
       </div>
     </div>
