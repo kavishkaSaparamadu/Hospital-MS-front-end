@@ -1,18 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import FogetPassword from '../../pages/Login/FogetPassword'
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Login from "../../pages/Login/Login";
 const PateinLayout = () => {
   return (
     <div>
-        
-    <div>
-    <FogetPassword/>
-    <Outlet/>
+      <div>
+        <Login />
+        <Outlet />
+      </div>
     </div>
-    </div>
-    
-  )
-}
+  );
+};
 
-export default PateinLayout
+export default PateinLayout;
