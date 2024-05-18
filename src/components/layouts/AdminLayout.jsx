@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../Header/Header'
-import SideBar from '../adminComponents/SideBar/SideBar'
+import SideNavBar from '../NavBar/SideNavBar'
 import { Outlet } from 'react-router-dom'
 
 const AdminLayout = () => {
   return (
     <div>
-        <Header/>
+        {/* <Header/> */}
         <div style={{display:'flex'}}>
-          <SideBar/>
+          
           <Outlet/>
         </div>
     </div>
