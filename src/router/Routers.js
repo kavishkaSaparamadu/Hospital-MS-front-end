@@ -14,7 +14,6 @@ import PateintList from "../Doctor/pateintList";
 import DoctorLayout from "../components/layouts/doctorLayout";
 import Channeling from "../pages/Channeling";
 import Register from "../pages/Register/Register";
-import PateinLayout from "../components/layouts/pateinLayout";
 import UserProfile from "../pages/userProfile";
 import RegisterPateion from "../Admin/RegisterPateion";
 import Appoiment from "../Admin/Appoiment";
@@ -23,11 +22,12 @@ import PatientFeedback from "../Patient/PatientFeedback";
 import PatientHistory from "../Patient/PatientHistory";
 import PatientAppointment from "../Patient/PatientAppointment";
 import Login from "../pages/Login/Login";
+import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
   return (
     <Routes>
-      <Route path="/login" element={<PateinLayout />}></Route>
+      
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/" element={<Layout />}>
         <Route path="/home" element={<Home />} />
@@ -57,7 +57,7 @@ const Routers = () => {
         <Route path="/doctor/pateinlist" element={<PateintList />} />
       </Route>
 
-      <Route path="/patient" element={<PateinLayout />}></Route>
+      <Route path="/patient" element={<PatientLayout/>}></Route>
       <Route
         path="/patient"
         element={<Navigate to="/patient/patientDashboard" />}
