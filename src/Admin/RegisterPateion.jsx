@@ -1,8 +1,13 @@
 // import React from 'react'
 import React, { useEffect, useState } from "react";
+import MainLayout from "../components/layouts/MainLayout";
 import { FaSearch } from "react-icons/fa";
 
-
+const sideNavBarLinks = [
+  { title: "Dashboard", path: "/Admin/dashboard" },
+  { title: "Appointments", path: "/Admin/Appointment" },
+  { title: "Patients", path: "/Admin/RegisterPateion" },
+];
 
 const RegisterPateion = () => {
   
@@ -55,8 +60,8 @@ const RegisterPateion = () => {
       setSelectedRow(null);
     };
     return (
-      <div>
-        {/* <MainLayout data={sideNavBarLinks}> */}
+      
+        <MainLayout data={sideNavBarLinks}>
           <div className="flex flex-col gap-10 mt-[4rem] ml-[5rem]">
             <div class="inline-flex">
               <button
@@ -214,7 +219,8 @@ const RegisterPateion = () => {
             )}
             {/* -------------------------end vehicle data----------------------------- */}
           </div>
-          </div>
+
+          </MainLayout>
        )   
         
                               

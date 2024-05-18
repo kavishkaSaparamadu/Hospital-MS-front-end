@@ -6,7 +6,7 @@ const sideNavBarLinks = [
   { title: "Appointments", path: "/Admin/Appointment" },
   { title: "Patients", path: "/Admin/RegisterPateion" },
 ];
-const Dashboard = () => {
+const Appoiment = () => {
   return (
     <div>
       <MainLayout data={sideNavBarLinks}>
@@ -16,4 +16,6 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+
+
+export default Appoiment
