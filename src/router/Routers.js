@@ -5,8 +5,8 @@ import Home from "../pages/home";
 import About from "../pages/about";
 import Faqs from "../pages/faqs";
 import Contact from "../pages/contact";
-import AdminLogin from "../Admin/adminLogin";
-import AdminLayout from "../components/layouts/AdminLayout";
+// import AdminLogin from "../Admin/adminLogin";
+// import AdminLayout from "../components/layouts/AdminLayout";
 import Dashboard from "../Admin/dashboard";
 import DoctorDashboard from "../Doctor/doctorDashboard";
 import ScheduleAppoment from "../Doctor/ScheduleAppoment";
@@ -16,7 +16,7 @@ import Channeling from "../pages/Channeling";
 import Register from "../pages/Register/Register";
 import UserProfile from "../pages/userProfile";
 import RegisterPateion from "../Admin/RegisterPateion";
-import Appoiment from "../Admin/Appoiment";
+import AdminAppointment from "../Admin/Appointment";
 import PatientDashboard from "../Patient/PatientDashboard";
 import PatientFeedback from "../Patient/PatientFeedback";
 import PatientHistory from "../Patient/PatientHistory";
@@ -40,14 +40,14 @@ const Routers = () => {
         <Route path="/userProfile" element={<UserProfile />} />
       </Route>
 
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
+      {/* <Route path="/admin/login" element={<AdminLogin />} />
+      
+        <Route path="/admin" element={<Navigate to="/admin/dashboard" />} /> */}
 
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/registerPateion" element={<RegisterPateion />} />
-        <Route path="/admin/appoiment" element={<Appoiment />} />
-      </Route>
+        <Route path="/admin/appointment" element={<AdminAppointment />} />
+     
 
       <Route path="/doctor" element={<DoctorLayout />}>
         <Route path="/doctor" element={<Navigate to="/doctor/dashboard" />} />

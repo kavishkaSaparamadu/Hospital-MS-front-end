@@ -20,7 +20,7 @@ const Channeling = () => {
               DoctorName="Dr.Anuradhu Perera"
               Specialty="Cardiologist"
               Experience="10 years"
-              btnHref="/login"
+              btnHref={login}
             />
             <SingleDoctor
               image={chathu}

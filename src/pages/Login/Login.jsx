@@ -172,7 +172,6 @@ import LoginValidation from "./LoginValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
@@ -199,26 +198,35 @@ function Login() {
 
     if (!Object.values(err).some((error) => error)) {
       try {
-        console.log(email, password);
-        const response = await axios.post(`http://localhost:5000/auth/login`, { email, password });
-        const data = response.data;
+        const body = { email, password };
 
-        if (data.status) {
-          toast.success("Login successful");
-          navigate= '/patient/patientDashboard';
-          // dispatch({ type: "LOGIN_SUCCESS", payload: data });
+       
+        const response = await fetch("http://localhost:5000/user/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
-          // localStorage.setItem("userName", data.userName);
-          // localStorage.setItem("userId", data.userId);
+        if (response.status === 401) {
+          toast.error("User Not Found!");
+        } else if (response.status === 402) {
+          toast.error("Incorrect Password!");
+        } else if (response.ok) {
+          const responseBody = await response.json();
+          // const user = responseBody.user;
 
-          if (data.role === 'admin') {
-            window.location.href = '/admin/dashboard';
-          } else if (data.role === 'patient') {
-            window.location.href = '/patient/patientDashboard';
-          } else if (data.role === 'doctor') {
-            window.location.href = '/doctor/dashboard';
-          } else {
-             // Adjust this according to your needs
+          const userRole = responseBody.userRole;
+          const userName = responseBody.name;
+          const userId = responseBody.customId;
+          dispatch({ type: "LOGIN_SUCCESS", payload: responseBody.userRole });
+
+          localStorage.setItem("userName", userName);
+          localStorage.setItem("userId", userId);
+
+         if (userRole === "patient") {
+            navigate("/patient/patientDashboard");
+          } else if (userRole === "doctor") {
+            navigate("/doctor/doctorDashboard");
           }
 
           setValues({
@@ -226,7 +234,9 @@ function Login() {
             password: "",
           });
         } else {
-          toast.error(data.message || "Login failed");
+          //if(res.data.Login)
+          console.log(response);
+          navigate("/admin/dashboard");
         }
       } catch (error) {
         toast.error('An error occurred during login.');
