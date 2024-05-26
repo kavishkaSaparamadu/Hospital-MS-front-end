@@ -9,9 +9,8 @@ import Contact from "../pages/contact";
 // import AdminLayout from "../components/layouts/AdminLayout";
 import Dashboard from "../Admin/dashboard";
 import DoctorDashboard from "../Doctor/doctorDashboard";
-import ScheduleAppoment from "../Doctor/ScheduleAppoment";
-import PateintList from "../Doctor/pateintList";
-import DoctorLayout from "../components/layouts/doctorLayout";
+import Appointment from "../Doctor/Appointment";
+import Finance from "../Doctor/Finance";
 import Channeling from "../pages/Channeling";
 import Register from "../pages/Register/Register";
 import UserProfile from "../pages/userProfile";
@@ -21,13 +20,19 @@ import PatientDashboard from "../Patient/PatientDashboard";
 import PatientFeedback from "../Patient/PatientFeedback";
 import PatientHistory from "../Patient/PatientHistory";
 import PatientAppointment from "../Patient/PatientAppointment";
-import Login from "../pages/Login/Login";
-import PatientLayout from "../components/layouts/patientLayout";
+import Login from "../pages/Login/Login"
+import PharmacistDashboard from "../Pharmacist/Dashboard";
+import PharmacistProfile from "../Pharmacist/profile";
+import DoctorProfile from "../Doctor/Profile";
+import PatientProfile from "../Patient/Profile";
+import AdminProfile from "../Admin/profile";
+
+;
+// import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
   return (
     <Routes>
-      
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/" element={<Layout />}>
         <Route path="/home" element={<Home />} />
@@ -44,30 +49,33 @@ const Routers = () => {
       
         <Route path="/admin" element={<Navigate to="/admin/dashboard" />} /> */}
 
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/registerPateion" element={<RegisterPateion />} />
-        <Route path="/admin/appointment" element={<AdminAppointment />} />
-     
+      <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/admin/registerPateion" element={<RegisterPateion />} />
+      <Route path="/admin/appointment" element={<AdminAppointment />} />
+      <Route path="/admin/profile" element={<AdminProfile />} />
+      
 
-      <Route path="/doctor" element={<DoctorLayout />}>
-        <Route path="/doctor" element={<Navigate to="/doctor/dashboard" />} />
+        <Route path="/doctor/doctorDashboard" element={<DoctorDashboard />} />
+        <Route path="/doctor/appointment" element={<Appointment/>} />
+        <Route path="/doctor/finance" element={<Finance />} />
+        <Route path="/doctor/profile" element={<DoctorProfile/>} />
 
-        <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
-        <Route path="/doctor/schedule" element={<ScheduleAppoment />} />
-        <Route path="/doctor/pateinlist" element={<PateintList />} />
-      </Route>
-
-      <Route path="/patient" element={<PatientLayout/>}></Route>
-      <Route
+      {/* <Route path="/patient" element={<PatientLayout />}></Route> */}
+      {/* <Route
         path="/patient"
         element={<Navigate to="/patient/patientDashboard" />}
-      />
+      /> */}
 
       <Route path="/patient/patientDashboard" element={<PatientDashboard />} />
       <Route path="/patient/appointment" element={<PatientAppointment />} />
       <Route path="/patient/feedback" element={<PatientFeedback />} />
       <Route path="/patient/history" element={<PatientHistory />} />
-    </Routes>
+      <Route path="/patient/profile" element={<PatientProfile/>} />
+
+    <Route path="/pharmacist/Dashboard" element={<PharmacistDashboard/>} />
+    <Route path="/pharmacist/profile" element={<PharmacistProfile/>} />
+
+</Routes>
   );
 };
 

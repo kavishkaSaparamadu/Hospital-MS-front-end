@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Footer from "../Footer/Footer";
+//import Footer from "../Footer/Footer";
 import SideNavBar from "../NavBar/SideNavBar";
 import TopNavBar from "../NavBar/TopNavBar";
 
@@ -17,7 +17,7 @@ function MainLayout({ data, children }) {
               {children}
             </div>
             <div>
-              <Footer />
+            
             </div>
         </div> 
     </div>

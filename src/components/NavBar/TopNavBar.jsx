@@ -15,17 +15,15 @@ function TopNavBar() {
   const userName = localStorage.getItem("userName");
   const location = useLocation();
   let profileLink;
-//   if (location.pathname.includes("/driver/")) {
-//     profileLink = "/driver/profile";
-//   } else if (location.pathname.includes("/parent/")) {
-//     profileLink = "/parent/profile";
-//   } else if (location.pathname.includes("/vc/")) {
-//     profileLink = "/v_coordinator/profile";
-//   } else if (location.pathname.includes("/sup_agent/")) {
-//     profileLink = "/sup_agent/profile";
-//   } else if (location.pathname.includes("/admin/")) {
-//     profileLink = "/admin/profile";
-//   }
+  if (location.pathname.includes("/Doctor/")) {
+    profileLink = "/Doctor/Profile";
+  } else if (location.pathname.includes("/patient/")) {
+    profileLink = "/Patient/Profile";
+  } else if (location.pathname.includes("/pharmacist/")) {
+    profileLink = "/Pharmacist/profile";
+  } else if (location.pathname.includes("/admin/")) {
+    profileLink = "/Admin/profile";
+  } 
 
   return (
     <div className="w-full p-4 text-black bg-white sticky flex flex-row gap-3 justify-between items-center shadow-md">

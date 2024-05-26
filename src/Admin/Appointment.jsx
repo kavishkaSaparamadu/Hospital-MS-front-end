@@ -10,7 +10,7 @@ const Appoiment = () => {
   return (
     <div>
       <MainLayout data={sideNavBarLinks}>
-
+        
       </MainLayout>
     </div>
   )
