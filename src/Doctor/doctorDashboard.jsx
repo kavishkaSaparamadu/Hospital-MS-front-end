@@ -1,9 +1,17 @@
 import React from 'react'
+import MainLayout from "../components/layouts/MainLayout";
 
-const DoctorDashboard = () => {
+const sideNavBarLinks = [
+  { title: "Dashboard", path: "/Doctor/doctorDashboard" },
+  { title: "Appointments", path: "/Doctor/Appointment" },
+  { title: "Finance", path: "/Doctor/Finance" },
+];
+
+const doctorDashboard = () => {
   return (
-    <div>D</div>
+    <div><MainLayout data={sideNavBarLinks}>
+      </MainLayout></div>
   )
 }
 
-export default DoctorDashboard
+export default doctorDashboard
