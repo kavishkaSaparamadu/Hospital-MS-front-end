@@ -10,3 +10,58 @@
     border-color: gray;
     border-style: outset;
 }
+
+.primary-button{
+    background-color:mediumturquoise;
+    border-color:aqua ;
+    height: 40px !important;
+    width: 100% !important;
+    color: black !important;
+    font-size: 16px !important;
+}
+.card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgb(83, 143, 255);
+    max-width: max-content !important;
+    padding: 7px 15px;
+    margin-right: 50px;
+
+}
+.norml-text{
+    font-size: 1rem;
+
+}
+.card{
+    box-shadow: 0 0 2px gray;
+}
+.authentication{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(6, 66, 111);
+}
+.authentication-form card{
+    width: 400px;
+    ;
+}
+
+.anchor{
+    color: black;
+    text-decoration: underline;
+    font-size: 160x !important;
+}
+
+.anchor:hover{
+    text-decoration: underline!important;
+}
+
+.authentication.card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgb(83, 143, 255);
+    max-width: max-content !important;
+    padding: 7px 15px;
+    margin-left: 40px;
+}

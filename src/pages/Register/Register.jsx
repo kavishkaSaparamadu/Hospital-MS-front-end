@@ -1,4 +1,111 @@
-import axios from "axios";
+import React from 'react';
+import { Form, Input, Select, Radio, Button } from "antd";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
+const { Option } = Select;
+
+function Register() {
+
+  const onFinish = async (values) => {
+    console.log(values);
+    try {
+      const response = await axios.post('http://localhost:5000/api/user/register', values);
+
+      if (response.data.success) {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error('Something went wrong');
+    }
+  };
+
+  return (
+    <div className='authentication'>
+      <div className='authentication-form card p-3'>
+        <h1 className='card-title'>Welcome to Family Care Dispensary</h1>
+        <Form layout='vertical' onFinish={onFinish}>
+          
+          <Form.Item label='Custom ID' name='customId' rules={[{ required: true, message: 'Please input your custom ID!' }]}>
+            <Input placeholder='Custom ID' />
+          </Form.Item>
+          
+          <Form.Item label='Role' name='role' rules={[{ required: true, message: 'Please select your role!' }]}>
+            <Select placeholder='Select a role'>
+              <Option value='patient'>Patient</Option>
+              <Option value='doctor'>Doctor</Option>
+            </Select>
+          </Form.Item>
+          
+          <Form.Item label='Name' name='name' rules={[{ required: true, message: 'Please input your name!' }]}>
+            <Input placeholder='Name' />
+          </Form.Item>
+          
+          <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please input your email!' }, { type: 'email', message: 'Please input a valid email!' }]}>
+            <Input placeholder='Email' />
+          </Form.Item>
+          
+          <Form.Item label='Address' name='address' rules={[{ required: true, message: 'Please input your address!' }]}>
+            <Input placeholder='Address' />
+          </Form.Item>
+          
+          <Form.Item label='Gender' name='gender' rules={[{ required: true, message: 'Please select your gender!' }]}>
+            <Radio.Group>
+              <Radio value='male'>Male</Radio>
+              <Radio value='female'>Female</Radio>
+              <Radio value='other'>Other</Radio>
+            </Radio.Group>
+          </Form.Item>
+          
+          <Form.Item label='Age' name='age' rules={[{ required: true, message: 'Please input your age!' }]}>
+            <Input type='number' placeholder='Age' />
+          </Form.Item>
+
+          <Form.Item label='Password' name='Password' rules={[{ required: true, message: 'Please input your password!' }]}>
+            <Input placeholder='Password' type='password' />
+          </Form.Item>
+          
+          <Form.Item>
+            <Button className='primary-button mt-2' htmlType='submit'>Register</Button>    
+          </Form.Item>
+
+          <Link to='/login' className='anchor mt-2'> CLICK HERE TO LOGIN </Link>
+        </Form>
+      </div>
+    </div>
+  );
+}
+
+export default Register;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -74,7 +181,7 @@ export default function Register() {
         <h2 className="text-2xl mb-4 text-center font-semibold">Register</h2>
         <form onSubmit={handleSubmit}>
           {/* User Role Dropdown */}
-          <div className="mb-4">
+         {/* <div className="mb-4">
             <label
               htmlFor="userRole"
               className="block text-sm font-medium text-gray-700"
@@ -94,7 +201,7 @@ export default function Register() {
           </div>
           {/* Rest of the form fields */}
           {/* Name */}
-          <div className="mb-4">
+          {/*<div className="mb-4">
             <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
@@ -111,7 +218,7 @@ export default function Register() {
             />
           </div>
           {/* Age */}
-          <div className="mb-4">
+          {/*<div className="mb-4">
             <label
               htmlFor="age"
               className="block text-sm font-medium text-gray-700"
@@ -128,7 +235,7 @@ export default function Register() {
             />
           </div>
           {/* Gender */}
-          <div className="mb-4">
+          {/*<div className="mb-4">
             <label
               htmlFor="gender"
               className="block text-sm font-medium text-gray-700"
@@ -145,7 +252,7 @@ export default function Register() {
             />
           </div>
           {/* Address */}
-          <div className="mb-4">
+          {/*<div className="mb-4">
             <label
               htmlFor="address"
               className="block text-sm font-medium text-gray-700"
@@ -162,7 +269,7 @@ export default function Register() {
             />
           </div>
           {/* Email */}
-          <div className="mb-4">
+         {/* <div className="mb-4">
             <label
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
@@ -179,7 +286,7 @@ export default function Register() {
             />
           </div>
           {/* Password */}
-          <div className="mb-4">
+         {/*} <div className="mb-4">
             <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
@@ -196,7 +303,7 @@ export default function Register() {
             />
           </div>
           {/* Submit Button */}
-          <div className="text-center">
+          {/*<div className="text-center">
             <button
               type="submit"
               className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
@@ -209,3 +316,4 @@ export default function Register() {
     </div>
   );
 }
+*/}
