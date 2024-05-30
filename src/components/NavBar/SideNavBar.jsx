@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import ArrowImg from "../../Images/arrow.png";
-import Logo from "../../Images/regbg.png";
+import Logo from "../../Images/logoo.png"; // Change the path to your logo image
 import { AuthContext } from "../../pages/context/AuthContext";
 
 function SideNavBar({ data, open, setOpen, userRole }) {
@@ -25,6 +25,14 @@ function SideNavBar({ data, open, setOpen, userRole }) {
                 open ? "w-[260px]" : "w-[100px]"
             } duration-300 h-screen p-5 pt-4 bg-blue-950 relative`}
         >
+            <div className="flex flex-col items-center justify-center mb-4">
+                <span className="text-white text-lg font-semibold mb-2">FAMILY CARE</span>
+                <img
+                    src={Logo}
+                    alt="Logo"
+                    className={`cursor-pointer mb-0 pb-0 duration-300 rounded-full ${open ? 'w-20 h-20' : 'w-14 h-14'}`}
+                />
+            </div>
             <img
                 src={ArrowImg}
                 alt="Toggle Sidebar"
@@ -33,15 +41,6 @@ function SideNavBar({ data, open, setOpen, userRole }) {
                 }`}
                 onClick={() => setOpen(!open)}
             />
-            <div className="flex items-center gap-x-4">
-                <img
-                    src={Logo}
-                    alt="Logo"
-                    className={`cursor-pointer mb-0 pb-0 duration-300 rounded-full ${
-                        !open && "mb-7"
-                    }`}
-                />
-            </div>
             <div className="text-white mt-4 mb-2">
                 {open && <span>{userRole}</span>}
             </div>
@@ -52,9 +51,9 @@ function SideNavBar({ data, open, setOpen, userRole }) {
                         to={link.path}
                         exact
                         onClick={() => handleNavLinkClick(index)}
-                        className={`text-black text-m flex items-center gap-x-7 cursor-pointer p-2 hover:bg-blue-300 hover:text-white border border-black rounded-md my-10 ${
+                        className={`text-white text-m flex items-center gap-x-7 cursor-pointer p-2 hover:bg-blue-950 hover:text-white border border-black rounded-md my-10 ${
                             !open && "p-4 mt-17 pl-5"
-                        } ${activeLink === index ? "bg-blue-700 text-white" : "bg-blue-400"}`}
+                        } ${activeLink === index ? "bg-blue-700 text-white" : "bg-yellow-600"}`}
                     >
                         <span className={`${!open && "hidden"} origin-left duration-200`}>
                             {link.title}

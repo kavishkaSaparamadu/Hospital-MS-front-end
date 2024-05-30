@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
@@ -12,8 +12,28 @@ import cli from "../Images/clinic.png";
 import weH from "../Images/we.png";
 import header from "../Images/headr.png";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 function Home() {
+
+  const getData=async()=>{
+    try {
+      const response = await axios.post('/api/user//get-user-info-by-id',{},
+      {
+        headers: {
+          Authorization : 'Bearer' + localStorage.getItem('token'),
+        },
+      })
+      console.log(response.data)
+    }catch(errors){
+      console.log(errors)
+    }
+  }
+useEffect(()=> {
+ getData ()
+  
+},[])
+
   return (
     <div>
       <motion.div
@@ -255,5 +275,6 @@ function Home() {
     </div>
   );
 }
+
 
 export default Home;

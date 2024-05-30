@@ -26,8 +26,8 @@ import PharmacistProfile from "../Pharmacist/profile";
 import DoctorProfile from "../Doctor/Profile";
 import PatientProfile from "../Patient/Profile";
 import AdminProfile from "../Admin/profile";
-
-;
+import ApplyDoctor from "../Doctor/ApplyDoctor";
+import Notifications from "../pages/Notifications";
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -43,6 +43,7 @@ const Routers = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/userProfile" element={<UserProfile />} />
+       
       </Route>
 
       {/* <Route path="/admin/login" element={<AdminLogin />} />
@@ -57,9 +58,10 @@ const Routers = () => {
 
         <Route path="/doctor/doctorDashboard" element={<DoctorDashboard />} />
         <Route path="/doctor/appointment" element={<Appointment/>} />
+        <Route path="/Doctor/ApplyDoctor" element={<ApplyDoctor/>} />
         <Route path="/doctor/finance" element={<Finance />} />
         <Route path="/doctor/profile" element={<DoctorProfile/>} />
-
+        <Route path="notifications" element={<Notifications/>} />
       {/* <Route path="/patient" element={<PatientLayout />}></Route> */}
       {/* <Route
         path="/patient"

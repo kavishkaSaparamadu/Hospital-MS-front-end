@@ -1,19 +1,12 @@
 import { FaRegBell } from "react-icons/fa";
 import user from "../../Images/avetar.png";
-// import { useNavigate } from 'react-router-dom';
-import { NavLink, useLocation } from "react-router-dom";
-
-// const NavbarItem = ({ path, name }) => {
-//     return (
-//         <p className='px-5 cursor-pointer hover:text-gray-500 transition-all ease-in-out'>
-//             <NavLink to={path} >{name}</NavLink>
-//         </p>
-//     )
-// }
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 function TopNavBar() {
   const userName = localStorage.getItem("userName");
   const location = useLocation();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
   let profileLink;
   if (location.pathname.includes("/Doctor/")) {
     profileLink = "/Doctor/Profile";
@@ -23,16 +16,22 @@ function TopNavBar() {
     profileLink = "/Pharmacist/profile";
   } else if (location.pathname.includes("/admin/")) {
     profileLink = "/Admin/profile";
-  } 
+  }
+
+  const handleBellClick = () => {
+    // Navigate to notifications page when bell icon is clicked
+    navigate("/notifications"); // Replace "/notifications" with your actual notifications page path
+  };
 
   return (
     <div className="w-full p-4 text-black bg-white sticky flex flex-row gap-3 justify-between items-center shadow-md">
       <div></div>
 
-      <div className="flex item-center relative flex-row gap-6">
-        <FaRegBell className="mt-[6px]"></FaRegBell>
+      <div className="flex item-center relative flex-row gap-4 ">
+        {/* Add onClick event to the bell icon */}
+        <FaRegBell className="mt-[6px] size-6" onClick={handleBellClick} />
         <p>{userName}</p>
-        <div>
+        <div className="profle size-12">
           <NavLink to={profileLink}>
             <img
               src={user}

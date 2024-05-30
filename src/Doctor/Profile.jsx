@@ -7,6 +7,7 @@ import Avatar from "../Images/avetar.png"
 const sideNavBarLinks = [
     { title: "Dashboard", path: "/Doctor/doctorDashboard" },
     { title: "Appointments", path: "/Doctor/Appointment" },
+    { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
     { title: "Finance", path: "/Doctor/Finance" },
   ];
   

@@ -1,17 +1,18 @@
-
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import img from "../../Images/lab.png";
-import logo from "../../Images/lab.png";
+import img from "../../Images/dental.png";
+import logo from "../../Images/newviso.png";
 import { FaUser, FaLock } from "react-icons/fa";
 import LoginValidation from "./LoginValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/alertsSlice";
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -28,38 +29,25 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch({ type: "LOGIN_START" });
     const err = LoginValidation(values);
     setErrors(err);
 
     if (!Object.values(err).some((error) => error)) {
       try {
+        dispatch(showLoading());
         const body = { email, password };
 
-       
-        const response = await fetch("http://localhost:5000/user/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
+        const response = await axios.post('http://localhost:5000/api/user/login', body);
+        dispatch(hideLoading());
+        console.log(response.data);
 
-        if (response.status === 401) {
-          toast.error("User Not Found!");
-        } else if (response.status === 402) {
-          toast.error("Incorrect Password!");
-        } else if (response.ok) {
-          const responseBody = await response.json();
-          // const user = responseBody.user;
 
-          const userRole = responseBody.userRole;
-          const userName = responseBody.name;
-          const userId = responseBody.customId;
-          dispatch({ type: "LOGIN_SUCCESS", payload: responseBody.userRole });
+        if (response.data.success) {
+          const { userRole, name, token } = response.data;
+          localStorage.setItem("userName", name);
+          // localStorage.setItem("token", token);
 
-          localStorage.setItem("userName", userName);
-          localStorage.setItem("userId", userId);
-
-         if (userRole === "patient") {
+          if (userRole === "patient") {
             navigate("/patient/patientDashboard");
           } else if (userRole === "doctor") {
             navigate("/doctor/doctorDashboard");
@@ -70,13 +58,15 @@ function Login() {
             password: "",
           });
         } else {
-          //if(res.data.Login)
-          console.log(response);
-          navigate("/admin/dashboard");
+          toast.error(response.data.message);
         }
       } catch (error) {
-        toast.error('An error occurred during login.');
-        dispatch({ type: "LOGIN_FAILURE", payload: error.response?.data });
+        dispatch(hideLoading());
+        if (error.response && error.response.data && error.response.data.message) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error('An error occurred during login.');
+        }
       }
     }
   };
@@ -86,7 +76,7 @@ function Login() {
       <div className="leftSide">
         <div>
           <NavLink to="/">
-            <img src={logo} alt="logo" className="mt-3 ml-4 w-20 " />
+            <img src={logo} alt="l" className="mt-3 ml-4 w-20 " />
           </NavLink>
         </div>
         <div>
@@ -135,7 +125,7 @@ function Login() {
               )}
             </div>
             <div className="flex justify-end mt-2 mb-12">
-              <button className="text-orange  hover:text-black">
+              <button className="text-orange hover:text-black">
                 Forgot Password
               </button>
             </div>
@@ -148,7 +138,7 @@ function Login() {
             <p className="text-sm text-center mt-8">
               Don't have an account yet?
             </p>
-            <div className="w-full text-center py-3 text-orange  hover:text-black hover:underline">
+            <div className="w-full text-center py-3 text-orange hover:text-black hover:underline">
               <Link to="/register">Create Account</Link>
             </div>
           </form>
