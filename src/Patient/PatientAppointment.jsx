@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "../components/layouts/MainLayout";
-import { Select, Row, Col, Button, DatePicker } from "antd";
 import axios from "axios";
 import moment from 'moment';
-
-const { Option } = Select;
+import 'tailwindcss/tailwind.css';
 
 const sideNavBarLinks = [
   { title: "Dashboard", path: "/patient/patientDashboard" },
@@ -37,15 +35,15 @@ const PatientAppointment = () => {
     }
   };
 
-  const handleDoctorChange = (value) => {
+  const handleDoctorChange = (event) => {
+    const value = event.target.value;
     const doctor = doctors.find((doc) => doc._id === value);
     setSelectedDoctor(doctor);
-    // Set available dates for the selected doctor, or initialize with an empty array if no doctor is selected
     setAvailableDates(doctor ? doctor.availableDates : []);
   };
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
   };
 
   const handleCreateAppointment = async () => {
@@ -58,7 +56,6 @@ const PatientAppointment = () => {
       });
       if (response.data.success) {
         console.log("Appointment created successfully");
-        // Reset selected doctor and date after appointment creation
         setSelectedDoctor(null);
         setSelectedDate(null);
       } else {
@@ -72,70 +69,73 @@ const PatientAppointment = () => {
 
   return (
     <MainLayout data={sideNavBarLinks}>
-      <Row gutter={[16, 16]}>
-        <Col span={12}>
-          <h1>Select Doctor</h1>
-          <Select
-            style={{ width: 200 }}
-            placeholder="Select Doctor"
-            onChange={handleDoctorChange}
-            value={selectedDoctor ? selectedDoctor._id : null}
-          >
-            {doctors.map((doctor) => (
-              <Option key={doctor._id} value={doctor._id}>
-                {doctor.firstName} {doctor.lastName} - {doctor.specialization}
-              </Option>
-            ))}
-          </Select>
-          {selectedDoctor && (
-            <div>
-              <p>Name: {selectedDoctor.firstName} {selectedDoctor.lastName}</p>
-              <p>Email: {selectedDoctor.email}</p>
-              <p>Phone Number: {selectedDoctor.phoneNumber}</p>
-              <p>Address: {selectedDoctor.address}</p>
-              <p>Specialization: {selectedDoctor.specialization}</p>
-              <p>Experience: {selectedDoctor.experience}</p>
-              <p>Fee Per Consultation: {selectedDoctor.feePerConsultation}</p>
-              <p>
-                Timings:{" "}
-                {selectedDoctor.timings.map((timing, index) => {
-                  const time = moment(timing).format("HH:mm");
-                  const nextTime = moment(selectedDoctor.timings[index + 1]).format("HH:mm");
-                  return index === selectedDoctor.timings.length - 1 ? (
-                    <span key={timing}>{time}</span>
-                  ) : (
-                    <span key={timing}>{`${time} - ${nextTime}, `}</span>
-                  );
-                })}
-              </p>
-              <p>
-                Available Days:{" "}
-                {selectedDoctor.availableDays ? selectedDoctor.availableDays.join(", ") : ""}
-              </p>
-            </div>
-          )}
-        </Col>
-        <Col span={12}>
-          <h1>Select Date</h1>
-          <DatePicker
-            style={{ width: 200 }}
-            disabled={!selectedDoctor} // Disable DatePicker until a doctor is selected
-            onChange={handleDateChange}
-            disabledDate={(current) => current && current < moment().startOf('day')}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <Button
-            type="primary"
+      <div className="container mx-auto p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Select Doctor</h1>
+            <select
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+              onChange={handleDoctorChange}
+              value={selectedDoctor ? selectedDoctor._id : ''}
+            >
+              <option value="" disabled>Select Doctor</option>
+              {doctors.map((doctor) => (
+                <option key={doctor._id} value={doctor._id}>
+                  {doctor.firstName} {doctor.lastName} - {doctor.specialization}
+                </option>
+              ))}
+            </select>
+            {selectedDoctor && (
+              <div className="mt-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                <p><strong>Name:</strong> {selectedDoctor.firstName} {selectedDoctor.lastName}</p>
+                <p><strong>Email:</strong> {selectedDoctor.email}</p>
+                <p><strong>Phone Number:</strong> {selectedDoctor.phoneNumber}</p>
+                <p><strong>Address:</strong> {selectedDoctor.address}</p>
+                <p><strong>Specialization:</strong> {selectedDoctor.specialization}</p>
+                <p><strong>Experience:</strong> {selectedDoctor.experience}</p>
+                <p><strong>Fee Per Consultation:</strong> {selectedDoctor.feePerConsultation}</p>
+                <p>
+                  <strong>Timings:</strong>{" "}
+                  {selectedDoctor.timings.map((timing, index) => {
+                    const time = moment(timing).format("HH:mm");
+                    const nextTime = moment(selectedDoctor.timings[index + 1]).format("HH:mm");
+                    return index === selectedDoctor.timings.length - 1 ? (
+                      <span key={timing}>{time}</span>
+                    ) : (
+                      <span key={timing}>{`${time} - ${nextTime}, `}</span>
+                    );
+                  })}
+                </p>
+                <p>
+                  <strong>Available Days:</strong>{" "}
+                  {selectedDoctor.availableDays ? selectedDoctor.availableDays.join(", ") : ""}
+                </p>
+              </div>
+            )}
+          </div>
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Select Date</h1>
+            <input
+              type="date"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+              disabled={!selectedDoctor}
+              onChange={handleDateChange}
+              value={selectedDate || ''}
+              min={moment().format('YYYY-MM-DD')}
+            />
+          </div>
+        </div>
+        <div className="mt-6">
+          <button
+            type="button"
+            className="w-full px-4 py-2 bg-yellow-500 text-white font-semibold rounded-md shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             onClick={handleCreateAppointment}
             disabled={!selectedDoctor || !selectedDate || loading}
           >
             {loading ? "Creating Appointment..." : "Add Appointment"}
-          </Button>
-        </Col>
-      </Row>
+          </button>
+        </div>
+      </div>
     </MainLayout>
   );
 };

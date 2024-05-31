@@ -4,10 +4,10 @@ import MainLayout from "../components/layouts/MainLayout";
 import { FaSearch } from "react-icons/fa";
 
 const sideNavBarLinks = [
-  { title: "Dashboard", path: "/Admin/dashboard" },
-  { title: "Appointments", path: "/Admin/Appointment" },
-  { title: "Patients", path: "/Admin/RegisterPateion" },
-];
+    { title: "Dashboard", path: "/Admin/dashboard" },
+    { title: "Appointments", path: "/Admin/Appointment" },
+    { title: "Patients", path: "/Admin/RegisterPateion" },
+  ];
 
 const RegisterPateion = () => {
   
@@ -67,7 +67,7 @@ const RegisterPateion = () => {
               <button
                 className={`${
                   activeTab === "patients"
-                    ? "bg-blue-700 text-black drop-shadow-md border-black border-2"
+                    ? "bg-yellow-600 text-black drop-shadow-md border-black border-2"
                     : "bg-white"
                 } w-[10rem] hover:bg-orange hover:text-black font-bold hover:border-black py-2 px-4 rounded-l`}
                 onClick={() => setActiveTab("patients")}
@@ -113,7 +113,7 @@ const RegisterPateion = () => {
                 {/* -------------- */}
   
                 <table className="w-full border-separate border-spacing-y-2 mt-4  ">
-                  <thead className="bg-blue-500 border-2 text-xl">
+                  <thead className="bg-yellow-600 border-2 text-xl">
                     <tr className="">
                       <th className="px-4 py-4 text-left">ID</th>
                       <th className="px-4 py-4 text-left">Name</th>

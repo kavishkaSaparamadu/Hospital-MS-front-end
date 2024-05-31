@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import ArrowImg from "../../Images/arrow.png";
-import Logo from "../../Images/logoo.png"; // Change the path to your logo image
+import Logo from "../../Images/FamilyCare.png"; // Change the path to your logo image
 import { AuthContext } from "../../pages/context/AuthContext";
 
 function SideNavBar({ data, open, setOpen, userRole }) {

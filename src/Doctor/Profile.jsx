@@ -5,10 +5,10 @@ import {  FaRegEdit, FaTrash } from "react-icons/fa";
 import Avatar from "../Images/avetar.png"
 
 const sideNavBarLinks = [
-    { title: "Dashboard", path: "/Doctor/doctorDashboard" },
-    { title: "Appointments", path: "/Doctor/Appointment" },
-    { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
-    { title: "Finance", path: "/Doctor/Finance" },
+  { title: "Dashboard", path: "/Doctor/doctorDashboard" },
+  { title: "Appointments", path: "/Doctor/Appointment" },
+  { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
+  { title: "Finance", path: "/Doctor/Finance" },
   ];
   
 
@@ -258,7 +258,7 @@ const Profile = () => {
 
           {/* -----------profile details-------------- */}
           <div className="col-span-1 w-full h-[41rem] gap-5">
-            <div className="bg-[orange] w-full mt-10  p-5">
+            <div className="bg-[#ffffff] w-full mt-10  p-5">
               <div className="text-2xl font-semibold pb-2">Profile Details</div>
               <div className="bg-[#EEEEEE]  w-full h-full p-5">
                 <div className="flex flex-col gap-5">
@@ -431,7 +431,7 @@ const Profile = () => {
           </div>
           {/* -------------login password--------------- */}
           <div className="col-span-1  w-full h-[41rem] gap-5 ">
-            <div className="bg-[orange] w-full mt-10  p-5">
+            <div className="bg-[#ffffff] w-full mt-10  p-5">
               <div className="text-2xl font-semibold pb-2">Change Password</div>
               <div className="bg-[#EEEEEE]  w-full h-full p-5">
                 <div className="flex flex-col gap-5">

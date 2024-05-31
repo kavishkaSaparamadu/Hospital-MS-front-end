@@ -3,9 +3,9 @@ import MainLayout from "../components/layouts/MainLayout";
 
 const sideNavBarLinks = [
   { title: "Dashboard", path: "/Admin/dashboard" },
-  { title: "Appointments", path: "/Admin/Appointment" },
-  { title: "Patients", path: "/Admin/RegisterPateion" },
-];
+    { title: "Appointments", path: "/Admin/Appointment" },
+    { title: "Patients", path: "/Admin/RegisterPateion" },
+  ];
 const Dashboard = () => {
   return (
     <div>

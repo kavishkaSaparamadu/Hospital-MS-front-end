@@ -27,7 +27,9 @@ import DoctorProfile from "../Doctor/Profile";
 import PatientProfile from "../Patient/Profile";
 import AdminProfile from "../Admin/profile";
 import ApplyDoctor from "../Doctor/ApplyDoctor";
-import Notifications from "../pages/Notifications";
+import AdminNotifications from "../Admin/AdminNotifications";
+import DoctorNotifications from "../Doctor/doctorNotification";
+import PatientNotifications from "../Patient/patientNotification";
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -54,6 +56,7 @@ const Routers = () => {
       <Route path="/admin/registerPateion" element={<RegisterPateion />} />
       <Route path="/admin/appointment" element={<AdminAppointment />} />
       <Route path="/admin/profile" element={<AdminProfile />} />
+      <Route path ="/admin/notifications" element={<AdminNotifications/>} />
       
 
         <Route path="/doctor/doctorDashboard" element={<DoctorDashboard />} />
@@ -61,7 +64,7 @@ const Routers = () => {
         <Route path="/Doctor/ApplyDoctor" element={<ApplyDoctor/>} />
         <Route path="/doctor/finance" element={<Finance />} />
         <Route path="/doctor/profile" element={<DoctorProfile/>} />
-        <Route path="notifications" element={<Notifications/>} />
+        <Route path="/doctor/notifications" element={<DoctorNotifications/>} />
       {/* <Route path="/patient" element={<PatientLayout />}></Route> */}
       {/* <Route
         path="/patient"
@@ -73,6 +76,7 @@ const Routers = () => {
       <Route path="/patient/feedback" element={<PatientFeedback />} />
       <Route path="/patient/history" element={<PatientHistory />} />
       <Route path="/patient/profile" element={<PatientProfile/>} />
+      <Route path="/patient/notifications" element={<PatientNotifications/>} />
 
     <Route path="/pharmacist/Dashboard" element={<PharmacistDashboard/>} />
     <Route path="/pharmacist/profile" element={<PharmacistProfile/>} />

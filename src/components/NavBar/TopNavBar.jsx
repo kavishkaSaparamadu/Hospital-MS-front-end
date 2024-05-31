@@ -5,7 +5,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 function TopNavBar() {
   const userName = localStorage.getItem("userName");
   const location = useLocation();
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate();
 
   let profileLink;
   if (location.pathname.includes("/Doctor/")) {
@@ -18,9 +18,17 @@ function TopNavBar() {
     profileLink = "/Admin/profile";
   }
 
+  let notificationLink;
+  if (location.pathname.includes("/admin/")) {
+    notificationLink = "/admin/notifications";
+  } else if (location.pathname.includes("/patient/")) {
+    notificationLink = "/patient/notifications";
+  } else if (location.pathname.includes("/Doctor/")) {
+    notificationLink = "/doctor/notifications";
+  }
+
   const handleBellClick = () => {
-    // Navigate to notifications page when bell icon is clicked
-    navigate("/notifications"); // Replace "/notifications" with your actual notifications page path
+    navigate(notificationLink);
   };
 
   return (
@@ -29,7 +37,7 @@ function TopNavBar() {
 
       <div className="flex item-center relative flex-row gap-4 ">
         {/* Add onClick event to the bell icon */}
-        <FaRegBell className="mt-[6px] size-6" onClick={handleBellClick} />
+        <FaRegBell className="mt-[6px] size-6 cursor-pointer" onClick={handleBellClick} />
         <p>{userName}</p>
         <div className="profle size-12">
           <NavLink to={profileLink}>
