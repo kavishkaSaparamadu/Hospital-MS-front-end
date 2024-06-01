@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import img from "../../Images/dental.png";
-import logo from "../../Images/newviso.png";
+import img from "../../Images/login.png";
+import logo from "../../Images/FamilyCare.png";
 import { FaUser, FaLock } from "react-icons/fa";
 import LoginValidation from "./LoginValidation";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { hideLoading, showLoading } from "../../redux/alertsSlice";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Login() {
   const dispatch = useDispatch();
@@ -19,6 +21,13 @@ function Login() {
   });
   const { email, password } = values;
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   const handleInput = (event) => {
     setValues((prev) => ({
@@ -37,15 +46,16 @@ function Login() {
         dispatch(showLoading());
         const body = { email, password };
 
-        const response = await axios.post('http://localhost:5000/api/user/login', body);
+        const response = await axios.post(
+          "http://localhost:5000/api/user/login",
+          body
+        );
         dispatch(hideLoading());
         console.log(response.data);
-
 
         if (response.data.success) {
           const { userRole, name, token } = response.data;
           localStorage.setItem("userName", name);
-          // localStorage.setItem("token", token);
 
           if (userRole === "patient") {
             navigate("/patient/patientDashboard");
@@ -72,23 +82,23 @@ function Login() {
   };
 
   return (
-    <div className="bg-[#f0f0f0] h-screen grid grid-cols-2">
+    <div className="bg-[#d7d7d7] h-screen grid grid-cols-2">
       <div className="leftSide">
         <div>
           <NavLink to="/">
-            <img src={logo} alt="l" className="mt-3 ml-4 w-20 " />
+            <img src={logo} alt="l"  className="mt-3 ml-4 w-20 rounded-full" />
           </NavLink>
         </div>
-        <div>
+        <div data-aos="slide-up">
           <img
             src={img}
             alt="img"
-            className="p-12 w-full h-auto max-w-80 mx-auto"
+            className="p-12 w-9/12 h-fit max-w-full mx-auto"
           />
         </div>
       </div>
-      <div className="rightSide flex justify-center items-center bg-[#f0f0f0] h-screen">
-        <div className="bg-[#f0f0f0] p-8 w-[500px] rounded-lg relative">
+      <div className="rightSide flex justify-center items-center bg-[#d7d7d7] h-screen">
+        <div className="bg-yellow-600 p-8 w-[500px] rounded-lg relative">
           <div className="text-orange flex items-center justify-center mb-10 pb-10 font-bold w-full text-5xl">
             Welcome to FamilyCare
           </div>
@@ -106,7 +116,7 @@ function Login() {
                 />
               </div>
               {errors.email && (
-                <span className="text-xs text-red-500">{errors.email}</span>
+                <span className="text-xs text-red-200">{errors.email}</span>
               )}
             </div>
             <div className="mb-1 relative">
@@ -121,7 +131,7 @@ function Login() {
                 />
               </div>
               {errors.password && (
-                <span className="text-xs text-red-500">{errors.password}</span>
+                <span className="text-xs text-red-200">{errors.password}</span>
               )}
             </div>
             <div className="flex justify-end mt-2 mb-12">
@@ -131,7 +141,7 @@ function Login() {
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-orange text-white font-bold rounded-lg hover:bg-gray hover:text-black bg-purple-500"
+              className="w-full py-3 bg-orange text-white font-bold rounded-lg hover:bg-gray hover:text-black bg-blue-950"
             >
               Login
             </button>

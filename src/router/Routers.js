@@ -30,6 +30,7 @@ import ApplyDoctor from "../Doctor/ApplyDoctor";
 import AdminNotifications from "../Admin/AdminNotifications";
 import DoctorNotifications from "../Doctor/doctorNotification";
 import PatientNotifications from "../Patient/patientNotification";
+import PharmacyNotifications from "../Pharmacist/PharmacryNotification";
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -80,6 +81,7 @@ const Routers = () => {
 
     <Route path="/pharmacist/Dashboard" element={<PharmacistDashboard/>} />
     <Route path="/pharmacist/profile" element={<PharmacistProfile/>} />
+    <Route path="/pharmacist/notifications" element={< PharmacyNotifications/>} />
 
 </Routes>
   );

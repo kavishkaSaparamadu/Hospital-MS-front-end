@@ -25,8 +25,9 @@ function TopNavBar() {
     notificationLink = "/patient/notifications";
   } else if (location.pathname.includes("/Doctor/")) {
     notificationLink = "/doctor/notifications";
+  }else if (location.pathname.includes("/pharmacist/")) {
+    notificationLink = "/pharmacist/notifications";
   }
-
   const handleBellClick = () => {
     navigate(notificationLink);
   };

@@ -32,8 +32,9 @@ function Register() {
   };
 
   return (
+    
     <div className='authentication'>
-      <div className='authentication-form card p-3'>
+      <div className='authentication-form card p-3 '>
         <h1 className='card-title'>Welcome to Family Care Dispensary</h1>
         <Form layout='vertical' onFinish={onFinish}>
         

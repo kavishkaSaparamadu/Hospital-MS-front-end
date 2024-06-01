@@ -1,67 +1,59 @@
-import React from "react";
-import MissionImage from '../Images/vision.png'; // Replace '../Images/mission.jpg' with the correct path to your mission image
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+import MissionImage from '../Images/Asiri2photo.png'; // Replace with the correct path to your mission image
 import VisionImage from '../Images/newviso.png';
-//import HeaderVideo from '../Images/video.mp4'
- 
-//<video src={HeaderVideo} muted autoPlay loop type ="video/mp4" width="95%" height="500" id="vdoAbout" />
-
 function About() {
-  return (
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can set a global animation duration
+    });
+  }, []);
 
-   
+  return (
     <div>
- <div>
-    <div className='parallax-container'>
-   <div className='parallax-video w-screen'>
-   
-   
-  </div> 
- 
-         <div className="bg-gray-100 min-h-screen p-8">
-      <div className="max-w-4xl mx-auto"></div>
-        {/* Mission Section */}
-        <section className="my-8">
-          <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
-          <div className="flex items-center justify-center">
-            <p className="text-lg text-gray-700">
+      <div class="text-center p-8 bg-white">
+    <div class="flex flex-wrap items-center mt-20 text-left text-center">
+        <div class="w-full md:w-3/5 lg:w-1/2 px-4">
+            <img src={MissionImage} alt="gem" class="inline-block rounded " data-aos="fade-left"/>
+        </div>
+        <div class="w-full md:w-2/5 lg:w-1/2 px-4 text-center md:text-left lg:pl-12">
+            <h1 class="font-bold mt-8 text-3xl md:mt-0 sm:text-5xl">
+              Our Mission            </h1>
+            <p class="sm:text-lg mt-6 bg-slate-300"data-aos="fade-right" >
             "Our mission is to provide high-quality, compassionate healthcare services to our patients, utilizing the latest medical advancements and best practices. We are dedicated to fostering a culture of continuous improvement, empowering our staff, and serving as a trusted healthcare partner in promoting the well-being of our community."
 
-
-
-
-
-
-
-              {/* Enter your mission description here */}
             </p>
-            <img src={MissionImage} alt="Mission" className="min-w-96 max-h-96 aspect-square mr-6" />
-            <img src={VisionImage} alt="Vision" className="min-w-96 max-h-96 aspect-square mr-6" />
-            </div>
-        
-        </section>
-
-
-        {/* Vision Section */}
-        
-        <section className="my-8">
-          <h2 className="text-3xl font-semibold mb-4">Our Vision</h2>
-          <div className="flex items-center justify-center">
-            <img src={VisionImage} alt="Vision" className="min-w-96 max-h-96 aspect-square mr-9" />
-            <p className="text-lg text-gray-700">
-            To be the leading healthcare provider in our community, delivering exceptional patient-centered care, innovative treatments, and promoting wellness for all."
-              {/* Enter your vision description here */}
-            </p>
-          </div>
-          
-        </section>
-      
-      </div>
+        </div>
     </div>
-   
-    
-</div>
-</div>
 
+    <div class="flex flex-wrap items-center mt-20 ">
+        <div class="w-full md:w-3/5 lg:w-1/2 px-4">
+            <img src={VisionImage} alt="project members" class="inline-block rounded shadow-lg border border-merino-400" data-aos="fade-left"/>
+        </div>
+        <div class="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
+            <h3 class="font-bold mt-8 text-xl md:mt-0 sm:text-5xl">
+                Our Vission            </h3>
+            <p class="sm:text-lg mt-6 bg-slate-300"data-aos="fade-right">
+            "To be the leading healthcare provider in our community, delivering exceptional patient-centered care, innovative treatments, and promoting wellness for all."
+
+            </p>
+        </div>
+    </div>
+    <div>
+   
+  </div>
+        </div>
+    </div>
+
+    
+
+
+      
+          
+        
+      
+  
   );
 }
 
