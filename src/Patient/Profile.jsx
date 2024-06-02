@@ -34,7 +34,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/patient/profile', formData);
+      const response = await axios.post('http://localhost:5000/api/patients/profile', formData);
       if (response.data.success) {
         toast.success(response.data.message);
         setIsEditMode(false); // Disable edit mode
@@ -43,7 +43,11 @@ const Profile = () => {
       }
     } catch (error) {
       console.error('Error submitting patient profile:', error);
-      toast.error('Something went wrong. Please try again later.');
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('Something went wrong. Please try again later.');
+      }
     }
   };
 
@@ -58,6 +62,7 @@ const Profile = () => {
   };
 
   return (
+  
     <MainLayout data={sideNavBarLinks}>
       <div className="grid grid-cols-3 gap-3">
         <div className="col-span-1">

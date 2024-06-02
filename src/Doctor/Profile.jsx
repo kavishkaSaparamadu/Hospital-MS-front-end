@@ -8,6 +8,7 @@ const sideNavBarLinks = [
   { title: "Dashboard", path: "/Doctor/doctorDashboard" },
   { title: "Appointments", path: "/Doctor/Appointment" },
   { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
+  {title:"Prescription", path:"/doctor/prescriptions" },
   { title: "Finance", path: "/Doctor/Finance" },
   ];
   

@@ -4,7 +4,7 @@ import MainLayout from "../components/layouts/MainLayout";
 const sideNavBarLinks = [
     { title: "Dashboard", path: "/Admin/dashboard" },
     { title: "Appointments", path: "/Admin/Appointment" },
-    { title: "Patients", path: "/Admin/RegisterPateion" },
+    { title: "Users", path: "/Admin/RegisterPateion" },
   ];
 const profile = () => {
   return (

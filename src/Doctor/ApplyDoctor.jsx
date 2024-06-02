@@ -7,9 +7,10 @@ import toast from 'react-hot-toast';
 
 const sideNavBarLinks = [
   { title: "Dashboard", path: "/Doctor/doctorDashboard" },
-    { title: "Appointments", path: "/Doctor/Appointment" },
-    { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
-    { title: "Finance", path: "/Doctor/Finance" },
+  { title: "Appointments", path: "/Doctor/Appointment" },
+  { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
+  {title:"Prescription", path:"/doctor/prescriptions" },
+  { title: "Finance", path: "/Doctor/Finance" },
 ];
 
 const ApplyDoctor = () => {

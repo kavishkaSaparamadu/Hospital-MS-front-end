@@ -5,10 +5,11 @@ import MainLayout from '../components/layouts/MainLayout'; // Import MainLayout
 const { TabPane } = Tabs;
 
 const sideNavBarLinks = [
-    { title: "Dashboard", path: "/Doctor/doctorDashboard" },
-    { title: "Appointments", path: "/Doctor/Appointment" },
-    { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
-    { title: "Finance", path: "/Doctor/Finance" },
+  { title: "Dashboard", path: "/Doctor/doctorDashboard" },
+  { title: "Appointments", path: "/Doctor/Appointment" },
+  { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
+  {title:"Prescription", path:"/doctor/prescriptions" },
+  { title: "Finance", path: "/Doctor/Finance" },
 ];
 
 const DoctorNotifications = () => {

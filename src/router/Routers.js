@@ -31,6 +31,8 @@ import AdminNotifications from "../Admin/AdminNotifications";
 import DoctorNotifications from "../Doctor/doctorNotification";
 import PatientNotifications from "../Patient/patientNotification";
 import PharmacyNotifications from "../Pharmacist/PharmacryNotification";
+import Prescription from "../Doctor/prescriptions";
+import Userprescriptions from "../Pharmacist/prescriptions";
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -66,6 +68,7 @@ const Routers = () => {
         <Route path="/doctor/finance" element={<Finance />} />
         <Route path="/doctor/profile" element={<DoctorProfile/>} />
         <Route path="/doctor/notifications" element={<DoctorNotifications/>} />
+        <Route path="/doctor/prescriptions" element={<Prescription/>} />
       {/* <Route path="/patient" element={<PatientLayout />}></Route> */}
       {/* <Route
         path="/patient"
@@ -82,7 +85,7 @@ const Routers = () => {
     <Route path="/pharmacist/Dashboard" element={<PharmacistDashboard/>} />
     <Route path="/pharmacist/profile" element={<PharmacistProfile/>} />
     <Route path="/pharmacist/notifications" element={< PharmacyNotifications/>} />
-
+    <Route path="/paharmacist/user/prescriptions" element={<Userprescriptions/>} />
 </Routes>
   );
 };

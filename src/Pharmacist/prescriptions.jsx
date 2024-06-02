@@ -4,19 +4,19 @@ import MainLayout from "../components/layouts/MainLayout";
 
 const sideNavBarLinks = [
     { title: "Dashboard", path: "/pharmacist/Dashboard" },
-    {title: " Prescriptions", path: "/paharan/prescriptions" },
+    {title: " Prescriptions", path: "/paharmacist/user/prescriptions" },
 ];
 
 
-function Dashboard() {
+function Prescription() {
   return (
     <div>
 <MainLayout data={sideNavBarLinks}>
-        
+        ieoieuowee
         </MainLayout>
 
     </div>
   )
 }
 
-export default Dashboard
+export default Prescription
