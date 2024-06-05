@@ -5,93 +5,66 @@ import axios from "axios";
 const sideNavBarLinks = [
   { title: "Dashboard", path: "/Admin/dashboard" },
   { title: "Appointments", path: "/Admin/Appointment" },
-  { title: "Users", path: "/Admin/RegisterPateion" },
+  { title: "Patients", path: "/admin/registerPatient" },
+  { title: "Doctors", path: "/admin/registerDoctor" },
+
 ];
 
-const RegisterPateion = () => {
-  const [activeTab, setActiveTab] = useState("patients");
+const RegisterPatient = () => {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    fetchPatients();
-  }, []);
-
-  const fetchPatients = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/api/user/patients");
-      if (response.data.success) {
-        setPatients(response.data.patients);
-      } else {
-        console.error("Failed to fetch patients:", response.data.message);
-      }
-    } catch (error) {
-      console.error("Error fetching patients:", error);
-    }
-  };
+    // Fetch all patients when component mounts
+    axios.get("http://localhost:5000/api/patients/profiles")
+      .then(response => {
+        // Set the patients state with the data received
+        setPatients(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching patients:", error);
+      });
+  }, []); // Empty dependency array means this effect runs only once after the initial render
 
   return (
     <MainLayout data={sideNavBarLinks}>
-      <div className="flex flex-col gap-10 mt-[4rem] ml-[5rem]">
-        <div class="inline-flex">
-          <button
-            className={`${
-              activeTab === "patients"
-                ? "bg-yellow-600 text-black drop-shadow-md border-black border-2"
-                : "bg-white"
-            } w-[10rem] hover:bg-orange hover:text-black font-bold hover:border-black py-2 px-4 rounded-l`}
-            onClick={() => setActiveTab("patients")}
-          >
-            Patients
-          </button>
-          <button
-            className={`${
-              activeTab === "doctors"
-                ? "bg-orange text-black drop-shadow-md border-black border-2"
-                : "bg-gray"
-            } w-[10rem] hover:bg-orange  hover:text-black font-bold hover:border-black py-2 px-4 rounded-r`}
-            onClick={() => setActiveTab("doctors")}
-          >
-            Doctors
-          </button>
-        </div>
-        {/* -------------------------- Patients details-------------------------------------------- */}
-        {activeTab === "patients" && (
-          <div className="w-fill h-[45rem] p-8 bg-[#FDF6F6]">
-            <h1 className="font-bold text-2xl">Patient Details</h1>
-            <table className="w-full border-separate border-spacing-y-2 mt-4  ">
-              <thead className="bg-yellow-600 border-2 text-xl">
-                <tr className="">
-                  <th className="px-4 py-4 text-left">ID</th>
-                  <th className="px-4 py-4 text-left">Name</th>
-                  <th className="px-4 py-4 text-left">Gender</th>
-                  <th className="px-4 py-4 text-left">Address</th>
-                  <th className="px-4 py-4 text-left">Disease</th>
-                  <th className="px-4 py-4 text-left">Email</th>
-                </tr>
-              </thead>
+      <div className="py-12">
+        <div className="max-w-full mx-auto sm:px-6 lg:px-8">
+          <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div className="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-blue-950">All Patients</h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white dark:bg-gray-800">
+                <thead className="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium bg-blue-950 text-cyan-50 uppercase tracking-wider">Name</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium bg-blue-950 text-cyan-50 uppercase tracking-wider">Email</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium bg-blue-950 text-cyan-50 uppercase tracking-wider">Blood Group</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium bg-blue-950 text-cyan-50 uppercase tracking-wider">Medicin Details</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium bg-blue-950 text-cyan-50 uppercase tracking-wider">Age</th>
 
-              <tbody className="">
-                {patients.map((patient) => (
-                  <tr
-                    key={patient._id}
-                    className="bg-blue-200 bg-opacity-60 hover:cursor-pointer hover:bg-[#eaeaea] drop-shadow-md"
-                  >
-                    <td className="text-left px-4 py-4">{patient._id}</td>
-                    <td className="text-left px-4 py-4">{patient.name}</td>
-                    <td className="text-left px-4 py-4">{patient.gender}</td>
-                    <td className="text-left px-4 py-4">{patient.address}</td>
-                    <td className="text-left px-4 py-4">{patient.disease}</td>
-                    <td className="text-left px-4 py-4">{patient.email}</td>
+                    {/* Add more headers for other patient details if needed */}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  {patients.map(patient => (
+                    <tr key={patient._id}>
+                      <td className="px-6 py-4 whitespace-nowrap">{patient.name}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">{patient.email}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">{patient.bloodGroup}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">{patient.currentMedications}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">{patient.age}</td>
+                      {/* Add more td elements for other patient details if needed */}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        )}
-        {/* -------------------------end patient data----------------------------- */}
+        </div>
       </div>
     </MainLayout>
   );
 };
 
-export default RegisterPateion;
+export default RegisterPatient;

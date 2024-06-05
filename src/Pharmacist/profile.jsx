@@ -3,7 +3,9 @@ import MainLayout from "../components/layouts/MainLayout";
 
 
 const sideNavBarLinks = [
-    { title: "Dashboard", path: "/pharmacist/Dashboard" },
+    { title: "Dashboard", path: "/pharmacist/dashboard" },
+    { title: "Prescriptions", path: "/paharmacist/user/prescription" }, // Ensure the path is correct
+
 ];
 
 

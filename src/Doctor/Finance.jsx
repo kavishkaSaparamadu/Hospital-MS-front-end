@@ -3,9 +3,9 @@ import MainLayout from "../components/layouts/MainLayout";
 import { TEChart } from "tw-elements-react";
 
 const sideNavBarLinks = [
-  { title: "Dashboard", path: "/Doctor/doctorDashboard" },
-  { title: "Appointments", path: "/Doctor/Appointment" },
-  { title: "Apply Doctor", path: "/Doctor/ApplyDoctor" },
+  { title: "Dashboard", path: "/doctor/doctorDashboard" },
+  { title: "Appointments", path: "/doctor/appointment" },
+  { title: "Apply Doctor", path: "/Doctor/applyDoctor" },
   { title: "Prescription", path: "/doctor/prescriptions" },
   { title: "Finance", path: "/Doctor/Finance" },
 ];

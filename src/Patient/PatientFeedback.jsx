@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainLayout from "../components/layouts/MainLayout";
 
-// Placeholder for Chatbot component
 const Chatbot = () => {
-  return (
-    <div className="fixed bottom-4 right-4 bg-white border rounded-lg shadow-lg p-4">
-      <h2 className="text-lg font-semibold mb-2">Message</h2>
-      <p className="text-sm text-gray-600">How can I help you today?</p>
-      {/* Implement chatbot logic here */}
-    </div>
-  );
+  useEffect(() => {
+    // Inject Botpress script
+    const script1 = document.createElement("script");
+    script1.src = "https://cdn.botpress.cloud/webchat/v1/inject.js";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    // Inject Botpress config script
+    const script2 = document.createElement("script");
+    script2.src = "https://mediafiles.botpress.cloud/a5247ea6-7983-4939-a5ff-639c2b576496/webchat/config.js";
+    script2.defer = true;
+    document.body.appendChild(script2);
+
+    // Clean up the scripts on component unmount
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
+  }, []);
+
+  return null; // This component does not render any visible elements
 };
 
 const sideNavBarLinks = [
-  { title: "Dashboard", path: "/patient/patientDashboard" },
+  { title: 'Dashboard', path: '/patient/patientDashboard' },
   { title: "Appointments", path: "/patient/appointment" },
   { title: "Feedback", path: "/patient/feedback" },
   { title: "History", path: "/patient/history" },

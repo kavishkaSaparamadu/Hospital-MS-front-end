@@ -33,6 +33,8 @@ import PatientNotifications from "../Patient/patientNotification";
 import PharmacyNotifications from "../Pharmacist/PharmacryNotification";
 import Prescription from "../Doctor/prescriptions";
 import Userprescriptions from "../Pharmacist/prescriptions";
+import DoctorAppoiment from "../Doctor/Appointment";
+import AdminRegisterDoctor from "../Admin/Doctors"
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -56,15 +58,16 @@ const Routers = () => {
         <Route path="/admin" element={<Navigate to="/admin/dashboard" />} /> */}
 
       <Route path="/admin/dashboard" element={<Dashboard />} />
-      <Route path="/admin/registerPateion" element={<RegisterPateion />} />
+      <Route path="/admin/registerPatient" element={<RegisterPateion />} />
       <Route path="/admin/appointment" element={<AdminAppointment />} />
       <Route path="/admin/profile" element={<AdminProfile />} />
       <Route path ="/admin/notifications" element={<AdminNotifications/>} />
-      
+      <Route path ="/admin/registerDoctor" element={<AdminRegisterDoctor />} />
+
 
         <Route path="/doctor/doctorDashboard" element={<DoctorDashboard />} />
-        <Route path="/doctor/appointment" element={<Appointment/>} />
-        <Route path="/Doctor/ApplyDoctor" element={<ApplyDoctor/>} />
+        <Route path="/doctor/appointment" element={<DoctorAppoiment/>} />
+        <Route path="/doctor/applyDoctor" element={<ApplyDoctor/>} />
         <Route path="/doctor/finance" element={<Finance />} />
         <Route path="/doctor/profile" element={<DoctorProfile/>} />
         <Route path="/doctor/notifications" element={<DoctorNotifications/>} />
@@ -82,10 +85,10 @@ const Routers = () => {
       <Route path="/patient/profile" element={<PatientProfile/>} />
       <Route path="/patient/notifications" element={<PatientNotifications/>} />
 
-    <Route path="/pharmacist/Dashboard" element={<PharmacistDashboard/>} />
+    <Route path="/pharmacist/dashboard" element={<PharmacistDashboard/>} />
     <Route path="/pharmacist/profile" element={<PharmacistProfile/>} />
     <Route path="/pharmacist/notifications" element={< PharmacyNotifications/>} />
-    <Route path="/paharmacist/user/prescriptions" element={<Userprescriptions/>} />
+    <Route path="/paharmacist/user/prescription" element={<Userprescriptions/>} />
 </Routes>
   );
 };

@@ -5,7 +5,8 @@ import { Layout, Tabs } from 'antd';
 const { TabPane } = Tabs;
 
 const sideNavBarLinks = [
-    { title: "Dashboard", path: "/pharmacist/Dashboard" },
+    { title: "Dashboard", path: "/pharmacist/dashboard" },
+    {title: "Prescription", path:"/paharmacist/user/prescription"},
 ];
 const PharmacyNotifications = () => {
       const [notificationCount, setNotificationCount] = useState(3); // Example count of unseen notifications

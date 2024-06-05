@@ -5,7 +5,7 @@ import MainLayout from '../components/layouts/MainLayout'; // Import MainLayout
 const { TabPane } = Tabs;
 
 const sideNavBarLinks = [
-    { title: "Dashboard", path: "/patient/patientDashboard" },
+  { title: 'Dashboard', path: '/patient/patientDashboard' },
     { title: "Appointments", path: "/patient/appointment" },
     { title: "Feedback", path: "/patient/feedback" },
     { title: "History", path: "/patient/history" },

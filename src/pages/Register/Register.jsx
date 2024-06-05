@@ -38,12 +38,14 @@ function Register() {
         <h1 className='card-title'>Welcome to Family Care Dispensary</h1>
         <Form layout='vertical' onFinish={onFinish}>
         
-          <Form.Item label='Role' name='role' rules={[{ required: true, message: 'Please select your role!' }]}>
-            <Select placeholder='Select a role'>
-              <Option value='patient'>Patient</Option>
-              <Option value='doctor'>Doctor</Option>
-            </Select>
-          </Form.Item>
+            <Form.Item label='Role' name='role' rules={[{ required: true, message: 'Please select your role!' }]}>
+      <Select placeholder='Select a role'>
+        <Option value='admin'>Admin</Option>
+        <Option value='patient'>Patient</Option>
+        <Option value='pharmacist'>Pharmacist</Option>
+        <Option value='doctor'>Doctor</Option>
+      </Select>
+    </Form.Item>
           
           <Form.Item label='Name' name='name' rules={[{ required: true, message: 'Please input your name!' }]}>
             <Input placeholder='Name' />

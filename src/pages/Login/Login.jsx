@@ -51,7 +51,6 @@ function Login() {
           body
         );
         dispatch(hideLoading());
-        console.log(response.data);
 
         if (response.data.success) {
           const { userRole, name, token } = response.data;
@@ -59,8 +58,12 @@ function Login() {
 
           if (userRole === "patient") {
             navigate("/patient/patientDashboard");
+          } else if (userRole === "admin") {
+            navigate("/admin/dashboard");
           } else if (userRole === "doctor") {
             navigate("/doctor/doctorDashboard");
+          } else if (userRole === "pharmacist") { // Fixed route name
+            navigate("/pharmacist/dashboard");
           }
 
           setValues({
@@ -86,7 +89,7 @@ function Login() {
       <div className="leftSide">
         <div>
           <NavLink to="/">
-            <img src={logo} alt="l"  className="mt-3 ml-4 w-20 rounded-full" />
+            <img src={logo} alt="l" className="mt-3 ml-4 w-20 rounded-full" />
           </NavLink>
         </div>
         <div data-aos="slide-up">
@@ -113,6 +116,7 @@ function Login() {
                   name="email"
                   placeholder="Enter your email"
                   onChange={handleInput}
+                  value={email}
                 />
               </div>
               {errors.email && (
@@ -128,6 +132,7 @@ function Login() {
                   name="password"
                   placeholder="Enter your password"
                   onChange={handleInput}
+                  value={password}
                 />
               </div>
               {errors.password && (

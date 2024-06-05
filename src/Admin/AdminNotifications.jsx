@@ -8,7 +8,9 @@ const sideNavBarLinks = [
   { title: "Dashboard", path: "/Admin/dashboard" },
   { title: "Appointments", path: "/Admin/Appointment" },
   {title:"Notifications", path: "/Admin/Notifications" },
-  { title: "Users", path: "/Admin/RegisterPateion" },
+  { title: "Patients", path: "/admin/registerPatient" },
+  { title: "Doctors", path: "/admin/registerDoctor" },
+
 ];
 
 const AdminNotifications = () => {
