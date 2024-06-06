@@ -10,7 +10,6 @@ import Contact from "../pages/contact";
 import Dashboard from "../Admin/dashboard";
 import DoctorDashboard from "../Doctor/doctorDashboard";
 import Appointment from "../Doctor/Appointment";
-import Finance from "../Doctor/Finance";
 import Channeling from "../pages/Channeling";
 import Register from "../pages/Register/Register";
 import UserProfile from "../pages/userProfile";
@@ -35,6 +34,8 @@ import Prescription from "../Doctor/prescriptions";
 import Userprescriptions from "../Pharmacist/prescriptions";
 import DoctorAppoiment from "../Doctor/Appointment";
 import AdminRegisterDoctor from "../Admin/Doctors"
+import MedicalGuidance from "../Doctor/patentRecord";
+
 // import PatientLayout from "../components/layouts/patientLayout";
 
 const Routers = () => {
@@ -68,10 +69,10 @@ const Routers = () => {
         <Route path="/doctor/doctorDashboard" element={<DoctorDashboard />} />
         <Route path="/doctor/appointment" element={<DoctorAppoiment/>} />
         <Route path="/doctor/applyDoctor" element={<ApplyDoctor/>} />
-        <Route path="/doctor/finance" element={<Finance />} />
         <Route path="/doctor/profile" element={<DoctorProfile/>} />
         <Route path="/doctor/notifications" element={<DoctorNotifications/>} />
         <Route path="/doctor/prescriptions" element={<Prescription/>} />
+        <Route path="/doctor/medicalGuidance" element={<MedicalGuidance/>} />
       {/* <Route path="/patient" element={<PatientLayout />}></Route> */}
       {/* <Route
         path="/patient"

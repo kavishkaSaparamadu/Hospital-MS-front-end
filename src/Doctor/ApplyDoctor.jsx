@@ -5,13 +5,15 @@ import { Col, Row, Button, Form, Card, TimePicker, Checkbox, Input } from "antd"
 import axios from "axios";
 import toast from 'react-hot-toast';
 
+
+
 const sideNavBarLinks = [
-  { title: "Dashboard", path: "/doctor/doctorDashboard" },
-  { title: "Appointments", path: "/doctor/appointment" },
-  { title: "Apply Doctor", path: "/doctor/applyDoctor" },
-  {title:"Prescription", path:"/doctor/prescriptions" },
-  { title: "Finance", path: "/doctor/finance" },
-];
+    { title: "Dashboard", path: "/doctor/doctorDashboard"  },
+    { title: "Appointments", path: "/doctor/appointment" },
+    { title: "Apply Doctor", path: "/doctor/applyDoctor" },
+    { title: "Prescription", path: "/doctor/prescriptions"},
+    { title: "Medical Guidance", path: "/doctor/medicalGuidance"},
+  ]
 
 const ApplyDoctor = () => {
   const [form] = Form.useForm();

@@ -2,15 +2,15 @@ import { Layout, Tabs } from 'antd';
 import React, { useState } from 'react';
 import MainLayout from '../components/layouts/MainLayout'; // Import MainLayout
 
-const { TabPane } = Tabs;
 
+const { TabPane } = Tabs;
 const sideNavBarLinks = [
-  { title: "Dashboard", path: "/doctor/doctorDashboard" },
-  { title: "Appointments", path: "/doctor/appointment" },
-  { title: "Apply Doctor", path: "/Doctor/applyDoctor" },
-  {title:"Prescription", path:"/doctor/prescriptions" },
-  { title: "Finance", path: "/Doctor/Finance" },
-];
+    { title: "Dashboard", path: "/doctor/doctorDashboard" },
+    { title: "Appointments", path: "/doctor/appointment" },
+    { title: "Apply Doctor", path: "/doctor/applyDoctor" },
+    { title: "Prescription", path: "/doctor/prescriptions"},
+    { title: "Medical Guidance", path: "/doctor/medicalGuidance" },
+]
 
 const DoctorNotifications = () => {
   const [notificationCount, setNotificationCount] = useState(3); // Example count of unseen notifications

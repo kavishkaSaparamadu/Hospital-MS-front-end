@@ -4,14 +4,15 @@ import axios from 'axios';
 import { TEChart } from "tw-elements-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend ,LineChart} from 'recharts';
 
-const sideNavBarLinks = [
-  { title: "Dashboard", path: "/doctor/doctorDashboard" },
-  { title: "Appointments", path: "/doctor/appointment" },
-  { title: "Apply Doctor", path: "/doctor/applyDoctor" },
-  { title: "Prescription", path: "/doctor/prescriptions" },
-  { title: "Finance", path: "/doctor/finance" },
-];
 
+
+const sideNavBarLinks = [
+    { title: "Dashboard", path: "/doctor/doctorDashboard" },
+    { title: "Appointments", path: "/doctor/appointment" },
+    { title: "Apply Doctor", path: "/doctor/applyDoctor" },
+    { title: "Prescription", path: "/doctor/prescriptions" },
+    { title: "Medical Guidance", path: "/doctor/medicalGuidance" },
+  ]
 const DoctorDashboard = () => {
   const [totalAppointments, setTotalAppointments] = useState(0);
   const [todaysAppointments, setTodaysAppointments] = useState(0);

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import MainLayout from "../components/layouts/MainLayout";
 
-const sideNavBarLinks = [
-  { title: "Dashboard", path: "/doctor/doctorDashboard" },
-  { title: "Appointments", path: "/doctor/appointment" },
-  { title: "Apply Doctor", path: "/Doctor/applyDoctor" },
-  {title:"Prescription", path:"/doctor/prescriptions" },
-  { title: "Finance", path: "/Doctor/Finance" },
-];
 
+const sideNavBarLinks = [
+    { title: "Dashboard", path: "/doctor/doctorDashboard" },
+    { title: "Appointments", path: "/doctor/appointment"},
+    { title: "Apply Doctor", path: "/doctor/applyDoctor" },
+    { title: "Prescription", path: "/doctor/prescriptions" },
+    { title: "Medical Guidance", path: "/doctor/medicalGuidance"},
+]
 const Prescription = () => {
   const [formData, setFormData] = useState({
     patientName: '',
